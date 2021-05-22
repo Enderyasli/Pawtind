@@ -8,25 +8,25 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.pettin.android.ui.main.view.fragments.HomeFragment"
+        android:name="com.pawtind.android.ui.main.view.fragments.HomeFragment"
         android:label="Home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_favourites"
-        android:name="com.pettin.android.ui.main.view.fragments.FavoriteFragment"
+        android:name="com.pawtind.android.ui.main.view.fragments.FavoriteFragment"
         android:label="Favori"
         tools:layout="@layout/fragment_favorite" />
 
     <fragment
         android:id="@+id/navigation_search"
-        android:name="com.pettin.android.ui.main.view.fragments.SearchFragment"
+        android:name="com.pawtind.android.ui.main.view.fragments.SearchFragment"
         android:label="Search"
         tools:layout="@layout/fragment_search" />
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.pettin.android.ui.main.view.fragments.ProfileFragment"
+        android:name="com.pawtind.android.ui.main.view.fragments.ProfileFragment"
         android:label="Profile"
         tools:layout="@layout/fragment_profile" />
 
