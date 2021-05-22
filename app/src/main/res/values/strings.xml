@@ -2,4 +2,9 @@
     <string name="app_name">Pawtind</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="skip">Skip</string>
+    <string name="title_onboarding_1">Çiftleştir</string>
+    <string name="title_onboarding_2">Sahiplen</string>
+    <string name="title_onboarding_3">Arkadaş Bul</string>
+    <string name="next">Next</string>
 </resources>

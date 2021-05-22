@@ -57,5 +57,9 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.multidex:multidex:2.0.1'
 
+    //UI Components
+    implementation 'com.romandanylyk:pageindicatorview:1.0.2@aar'
+
+
 
 }

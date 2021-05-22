@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.fragment.findNavController
 import com.pawtind.android.R
+import com.pawtind.android.ui.base.BaseFragment
+import com.pawtind.android.ui.main.view.onboarding.OnBoardingFragment
 import kotlinx.android.synthetic.main.fragment_favorite.*
 
 
@@ -17,7 +19,7 @@ import kotlinx.android.synthetic.main.fragment_favorite.*
  * Use the [FavoriteFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class FavoriteFragment : Fragment() {
+class FavoriteFragment : BaseFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +34,7 @@ class FavoriteFragment : Fragment() {
        val favorite_txt = view.findViewById(R.id.favorite_txt) as TextView
             favorite_txt.setOnClickListener {
 
-                val someFragment: Fragment = test()
+                val someFragment: Fragment = OnBoardingFragment()
                 val transaction: FragmentTransaction = requireFragmentManager().beginTransaction()
                 transaction.replace(
                     R.id.navHostFragment,

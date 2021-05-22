@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var mainViewModel: MainViewModel
     private lateinit var adapter: MainAdapter
+    lateinit var navView:BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,24 +31,18 @@ class MainActivity : AppCompatActivity() {
 //        setupViewModel()
 //        setupObserver()
 
-        val navView = findViewById<BottomNavigationView>(R.id.bottomNav_view)
+         navView = findViewById<BottomNavigationView>(R.id.bottomNav_view)
 
         //Pass the ID's of Different destinations
 
-        //Pass the ID's of Different destinations
         val appBarConfiguration = AppBarConfiguration.Builder(
             R.id.navigation_home,
             R.id.navigation_favourites,
             R.id.navigation_profile,
             R.id.navigation_search
-        )
-            .build()
+        ).build()
 
-        //Initialize NavController.
-
-        //Initialize NavController.
-        val navHostFragment =
-            supportFragmentManager.findFragmentById(R.id.navHostFragment) as NavHostFragment
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.navHostFragment) as NavHostFragment
         val navController = navHostFragment.navController
         findViewById<BottomNavigationView>(R.id.bottomNav_view)
             .setupWithNavController(navController)
@@ -66,6 +61,10 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+    }
+    fun setBottomNavigationVisibility(visibility: Int) {
+        // get the reference of the bottomNavigationView and set the visibility.
+        navView.visibility = visibility
     }
 
 //    private fun setupUI() {
