@@ -11,4 +11,9 @@
     <string name="welcome_description">Kayıt olmak için kendinle ilgili bilgilerini gir.</string>
     <string name="login">Giriş Yap</string>
     <string name="sign_up">Kayıt Ol</string>
+    <string name="signup_description">Kayıt olmak için kendinle ilgili bilgileri gir.</string>
+    <string name="privacy_policy">$Kullanım Koşulları$ ve $Gizlilik Sözleşmesi\'ni$ onaylıyorum.</string>
+    <string name="enter_info">Bilgilerini Gir</string>
+    <string name="add_animal">Hayvan Ekle</string>
+    <string name="go_without_animal">Hayvan Eklemeden Devam Et</string>
 </resources>

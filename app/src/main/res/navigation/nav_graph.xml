@@ -31,6 +31,21 @@
         <action
             android:id="@+id/action_navigation_welcome_to_navigation_onboarding"
             app:destination="@id/navigation_onboarding" />
+        <action
+            android:id="@+id/action_navigation_welcome_to_navigation_signup"
+            app:destination="@id/navigation_signup"
+            app:enterAnim="@anim/slide_in"
+            app:popEnterAnim="@android:anim/fade_in" />
+    </fragment>
+
+    <fragment
+        app:popUpToInclusive="true"
+        app:launchSingleTop="true"
+        android:id="@+id/navigation_signup"
+        android:name="com.pawtind.android.ui.main.view.login.singUp.SignupFragment"
+        android:label="Onboarding"
+        tools:layout="@layout/fragment_signup" >
+
     </fragment>
 
     <navigation
