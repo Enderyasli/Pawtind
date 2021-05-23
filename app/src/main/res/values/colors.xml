@@ -6,4 +6,7 @@
     <color name="white">#ffffff</color>
     <color name="md_grey_300">#E0E0E0</color>
     <color name="black">#000000</color>
+    <color name="marineButton">#04d2b9</color>
+    <color name="orangeButton">#d25d04</color>
+
 </resources>

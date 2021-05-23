@@ -4,18 +4,33 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/appStarterNavGraph" app:startDestination="@id/navigation_start">
+    android:id="@+id/appStarterNavGraph" app:startDestination="@id/navigation_welcome">
 
     <fragment
         app:popUpToInclusive="true"
         app:launchSingleTop="true"
-        android:id="@+id/navigation_start"
+        android:id="@+id/navigation_onboarding"
         android:name="com.pawtind.android.ui.main.view.onboarding.OnBoardingFragment"
         android:label="Onboarding"
         tools:layout="@layout/fragment_on_boarding" >
         <action
             android:id="@+id/action_navigation_start_to_mobile_navigation"
             app:destination="@id/mobile_navigation" />
+    </fragment>
+
+    <fragment
+        app:popUpToInclusive="true"
+        app:launchSingleTop="true"
+        android:id="@+id/navigation_welcome"
+        android:name="com.pawtind.android.ui.main.view.login.WelcomeFragment"
+        android:label="Onboarding"
+        tools:layout="@layout/fragment_welcome" >
+        <action
+            android:id="@+id/action_navigation_start_to_mobile_navigation"
+            app:destination="@id/mobile_navigation" />
+        <action
+            android:id="@+id/action_navigation_welcome_to_navigation_onboarding"
+            app:destination="@id/navigation_onboarding" />
     </fragment>
 
     <navigation

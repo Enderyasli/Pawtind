@@ -7,4 +7,8 @@
     <string name="title_onboarding_2">Sahiplen</string>
     <string name="title_onboarding_3">Arkadaş Bul</string>
     <string name="next">Next</string>
+    <string name="Welcome">Hoşgeldin!</string>
+    <string name="welcome_description">Kayıt olmak için kendinle ilgili bilgilerini gir.</string>
+    <string name="login">Giriş Yap</string>
+    <string name="sign_up">Kayıt Ol</string>
 </resources>
