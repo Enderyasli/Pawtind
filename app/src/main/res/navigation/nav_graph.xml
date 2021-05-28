@@ -40,6 +40,20 @@
             android:id="@+id/action_navigation_welcome_to_navigation_signup"
             app:destination="@id/navigation_signup"
              />
+        <action
+            android:id="@+id/action_navigation_welcome_to_navigation_login"
+            app:destination="@id/navigation_login" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_login"
+        android:name="com.pawtind.android.ui.main.view.login.LoginFragment"
+        android:label="Onboarding"
+        app:launchSingleTop="true"
+        app:popUpToInclusive="true"
+        tools:layout="@layout/fragment_login">
+
+
     </fragment>
 
     <fragment

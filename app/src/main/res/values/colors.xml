@@ -15,5 +15,6 @@
     <color name="input_text_color">#828282</color>
     <color name="light_button">#f0f0f0</color>
     <color name="disabled_button_color">#c8c8c8</color>
+    <color name="signup_bg_color">#d25d04</color>
 
 </resources>

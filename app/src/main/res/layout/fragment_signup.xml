@@ -4,110 +4,114 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.main.view.login.singUp.SignupFragment">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="305dp">
-
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:alpha="0.11"
-            android:background="#d25d04" />
+            android:layout_height="305dp">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="0.11"
+                android:background="@color/signup_bg_color" />
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:layout_marginTop="68dp"
-            android:layout_marginEnd="46dp"
-            android:layout_marginRight="46dp"
-            android:text="Tr"
-            android:textColor="@color/grey"
-            android:textSize="22dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="68dp"
+                android:layout_marginEnd="46dp"
+                android:layout_marginRight="46dp"
+                android:text="Tr"
+                android:textColor="@color/grey"
+                android:textSize="22dp" />
 
-        <TextView
-            android:id="@+id/signup_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="@dimen/default_margin"
-            android:layout_marginRight="@dimen/default_margin"
-            android:layout_marginBottom="3dp"
-            android:text="@string/sign_up"
-            android:textColor="@color/orangeButton"
-            android:textSize="40dp" />
+            <TextView
+                android:fontFamily="@font/poppins_semibold"
+                android:id="@+id/signup_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/default_margin"
+                android:layout_marginRight="@dimen/default_margin"
+                android:layout_marginBottom="3dp"
+                android:text="@string/sign_up"
+                android:textColor="@color/orangeButton"
+                android:textSize="40dp" />
 
-        <TextView
-            android:id="@+id/signup_description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/default_margin"
-            android:layout_marginTop="200dp"
-            android:layout_marginRight="@dimen/default_margin"
-            android:text="@string/signup_description"
-            android:textColor="@color/grey"
-            android:textSize="22dp" />
+            <TextView
+                android:id="@+id/signup_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/default_margin"
+                android:layout_marginTop="200dp"
+                android:layout_marginRight="@dimen/default_margin"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/signup_description"
+                android:textColor="@color/grey"
+                android:textSize="22dp" />
 
-    </FrameLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="41dp"
-        android:layout_marginRight="20dp"
-        android:orientation="vertical">
-
-        <include layout="@layout/common_rounded_input_tv" />
-
-        <include
-            layout="@layout/common_rounded_input_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp" />
-
-        <include
-            layout="@layout/common_rounded_input_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp" />
+        </FrameLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="84dp"
-            android:orientation="horizontal">
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="41dp"
+            android:layout_marginRight="20dp"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/privacy_policy_tv"
-                android:text="@string/privacy_policy"
-                android:textSize="11dp"
+            <include layout="@layout/common_rounded_input_tv" />
+
+            <include
+                layout="@layout/common_rounded_input_tv"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp" />
+
+            <include
+                layout="@layout/common_rounded_input_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="84dp"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/privacy_policy_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/privacy_policy"
+                    android:textSize="11dp" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/signup_btn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/common_button_height"
+                android:layout_marginTop="48dp"
+                android:layout_marginBottom="50dp"
+                android:background="@drawable/orange_button_bg"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/sign_up"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
+
         </LinearLayout>
-
-        <Button
-            android:fontFamily="@font/poppins_semibold"
-            android:layout_marginTop="48dp"
-            android:id="@+id/signup_btn"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/common_button_height"
-            android:background="@drawable/orange_button_bg"
-            android:text="@string/sign_up"
-            android:textAllCaps="false"
-            android:layout_marginBottom="50dp"
-            android:textColor="@color/white"
-            android:textSize="16dp" />
-
-    </LinearLayout>
     </LinearLayout>
 </ScrollView>

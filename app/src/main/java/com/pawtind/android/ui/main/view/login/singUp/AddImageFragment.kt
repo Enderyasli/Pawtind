@@ -6,8 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.pawtind.android.R
+import com.pawtind.android.ui.base.BaseFragment
 
-class AddImageFragment : Fragment() {
+class AddImageFragment : BaseFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -1,21 +1,25 @@
 package com.pawtind.android.ui.main.view.login
 
+import android.graphics.Color
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableStringBuilder
+import android.text.style.ForegroundColorSpan
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.pawtind.android.R
-import com.pawtind.android.databinding.FragmentWelcomeBinding
+import com.pawtind.android.databinding.FragmentLoginBinding
+import com.pawtind.android.databinding.FragmentSignupBinding
 import com.pawtind.android.ui.base.BaseFragment
-import com.pawtind.android.utils.PreferenceHelper
 
 
-class WelcomeFragment : BaseFragment() {
+class LoginFragment : BaseFragment() {
 
     override var bottomNavigationViewVisibility = View.GONE
-    private var _binding: FragmentWelcomeBinding? = null
+    private var _binding: FragmentLoginBinding? = null
 
     private val binding get() = _binding!!
 
@@ -29,18 +33,10 @@ class WelcomeFragment : BaseFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentWelcomeBinding.inflate(inflater, container, false)
+        _binding = FragmentLoginBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        if (PreferenceHelper.SharedPreferencesManager.getInstance().isFirstDownload == true)
-            findNavController().navigate(R.id.action_navigation_welcome_to_navigation_onboarding)
 
-        binding.signupBtn.setOnClickListener {
-            findNavController().navigate(R.id.action_navigation_welcome_to_navigation_signup)
-        }
-        binding.loginBtn.setOnClickListener {
-            findNavController().navigate(R.id.action_navigation_welcome_to_navigation_login)
-        }
 
         return view
 
@@ -50,5 +46,4 @@ class WelcomeFragment : BaseFragment() {
         super.onDestroyView()
         _binding = null
     }
-
 }

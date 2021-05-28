@@ -18,4 +18,7 @@
     <string name="go_without_animal">Hayvan Eklemeden Devam Et</string>
     <string name="add_photo">Fotoğraf Ekle</string>
     <string name="complete">Tamamla</string>
+    <string name="forgot_password">Şifreni mi unuttun?</string>
+    <string name="my_animals">Hayvanlarım</string>
+    <string name="my_animals_description">Super! İlk Hayvanını ekledin. Uygulamaya devam etmek için tamamlayı tıkla ya da yeni hayvan ekle</string>
 </resources>
