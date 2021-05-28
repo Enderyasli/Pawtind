@@ -35,6 +35,9 @@ class SignupFragment : BaseFragment() {
         _binding = FragmentSignupBinding.inflate(inflater, container, false)
         val view = binding.root
 
+        binding.signupBtn.setOnClickListener {
+          findNavController().navigate(R.id.action_navigation_signup_to_navigation_photo)
+        }
 
         val spannable = SpannableStringBuilder(getString(R.string.privacy_policy))
         spannable.setSpan(

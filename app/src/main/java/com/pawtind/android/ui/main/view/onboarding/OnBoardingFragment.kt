@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.viewpager.widget.ViewPager
 import com.pawtind.android.R
 import com.pawtind.android.ui.base.BaseFragment
+import com.pawtind.android.utils.PreferenceHelper
 import kotlinx.android.synthetic.main.fragment_on_boarding.*
 
 class OnBoardingFragment : BaseFragment() {
@@ -43,7 +44,8 @@ class OnBoardingFragment : BaseFragment() {
 //
         textSkip = view.findViewById(R.id.text_skip) as TextView
         textSkip.setOnClickListener {
-            findNavController().navigate(R.id.action_navigation_start_to_mobile_navigation)
+            PreferenceHelper.SharedPreferencesManager.getInstance().isFirstDownload = false
+            findNavController().navigate(R.id.action_navigation_onboarding_to_navigation_welcome)
         }
         textNextStep = view.findViewById(R.id.txt_next_step) as TextView
 

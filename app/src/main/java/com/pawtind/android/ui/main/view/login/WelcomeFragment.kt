@@ -9,6 +9,7 @@ import androidx.navigation.fragment.findNavController
 import com.pawtind.android.R
 import com.pawtind.android.databinding.FragmentWelcomeBinding
 import com.pawtind.android.ui.base.BaseFragment
+import com.pawtind.android.utils.PreferenceHelper
 
 
 class WelcomeFragment : BaseFragment() {
@@ -27,11 +28,11 @@ class WelcomeFragment : BaseFragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentWelcomeBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        if (false)
+        if (PreferenceHelper.SharedPreferencesManager.getInstance().isFirstDownload == true)
             findNavController().navigate(R.id.action_navigation_welcome_to_navigation_onboarding)
 
         binding.signupBtn.setOnClickListener {

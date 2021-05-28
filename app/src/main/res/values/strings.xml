@@ -16,4 +16,6 @@
     <string name="enter_info">Bilgilerini Gir</string>
     <string name="add_animal">Hayvan Ekle</string>
     <string name="go_without_animal">Hayvan Eklemeden Devam Et</string>
+    <string name="add_photo">Fotoğraf Ekle</string>
+    <string name="complete">Tamamla</string>
 </resources>

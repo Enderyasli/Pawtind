@@ -5,4 +5,7 @@
     <dimen name="margin_minimum">4dp</dimen>
     <dimen name="common_button_height">50dp</dimen>
     <dimen name="medium_size">16sp</dimen>
+    <dimen name="small_size">8sp</dimen>
+    <dimen name="signup_title_size">40sp</dimen>
+    <dimen name="signup_title_top_margin">50dp</dimen>
 </resources>
