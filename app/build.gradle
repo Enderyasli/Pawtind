@@ -64,6 +64,8 @@ dependencies {
 
     //UI Components
     implementation 'com.romandanylyk:pageindicatorview:1.0.2@aar'
+    api 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
+
 //    implementation 'com.github.arcadefire:nice-spinner:1.4.4'
 //    implementation 'com.github.SimformSolutionsPvtLtd:SSImagePicker:1.6'
 
