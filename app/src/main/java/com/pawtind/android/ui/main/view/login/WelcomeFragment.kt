@@ -2,7 +2,6 @@ package com.pawtind.android.ui.main.view.login
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,12 +12,15 @@ import androidx.navigation.fragment.findNavController
 import com.pawtind.android.R
 import com.pawtind.android.data.api.ApiHelper
 import com.pawtind.android.data.api.ApiServiceImpl
+import com.pawtind.android.data.model.PawtindResponse
+import com.pawtind.android.data.model.signup.LoginInfoMapper
 import com.pawtind.android.databinding.FragmentWelcomeBinding
 import com.pawtind.android.ui.base.BaseFragment
 import com.pawtind.android.ui.base.ViewModelFactory
 import com.pawtind.android.ui.main.viewmodel.signup.WelcomeViewModel
 import com.pawtind.android.utils.PreferenceHelper
 import com.pawtind.android.utils.Status
+import java.lang.reflect.Field
 
 
 class WelcomeFragment : BaseFragment() {
@@ -67,11 +69,33 @@ class WelcomeFragment : BaseFragment() {
     }
 
     private fun setupObserver() {
-        welcomeViewModel.getLogin().observe(this, Observer {
+        welcomeViewModel.getLogin().observe(this, Observer { it ->
             when (it.status) {
                 Status.SUCCESS -> {
-                    it.data?.let { users ->
-                        Log.d("gelenresponse", users.toString())
+                    it.data?.let { it ->
+
+
+                        val pawtindResponse:List<PawtindResponse> = it.fields
+                        var loginInfoMapper = LoginInfoMapper()
+
+                        pawtindResponse.forEach { pawtindResponse: PawtindResponse ->
+
+                            loginInfoMapper.javaClass.declaredFields.forEach {
+
+
+                                if(pawtindResponse.key == it.name){
+                                    val field: Field = LoginInfoMapper::class.java.getDeclaredField(it.name)
+                                    field.isAccessible =true
+                                    field.set(loginInfoMapper,pawtindResponse.value)
+                                }
+
+
+                            }
+
+
+                        }
+
+                            Log.d("gelenresponse", it.toString())
                     }
                 }
                 Status.LOADING -> {

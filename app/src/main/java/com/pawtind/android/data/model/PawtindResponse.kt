@@ -2,7 +2,7 @@ package com.pawtind.android.data.model
 
 import com.google.gson.annotations.SerializedName
 
-data class KeyValue(
+data class PawtindResponse(
 
     @SerializedName("key")
     val key: String = "",
