@@ -4,4 +4,6 @@ class ApiHelper(private val apiService: ApiService) {
 
     fun getUsers() = apiService.getUsers()
 
+    fun getLogin() = apiService.getLogin()
+
 }
