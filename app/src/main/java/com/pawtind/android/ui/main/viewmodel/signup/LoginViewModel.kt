@@ -3,6 +3,7 @@ package com.pawtind.android.ui.main.viewmodel.signup
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.pawtind.android.data.model.PawtindResponse
 import com.pawtind.android.data.model.signup.Login
 import com.pawtind.android.data.repository.MainRepository
 import com.pawtind.android.utils.Resource
@@ -13,6 +14,7 @@ import io.reactivex.schedulers.Schedulers
 class LoginViewModel(private val mainRepository: MainRepository) : ViewModel() {
 
     private val login = MutableLiveData<Resource<Login>>()
+    private val fields = MutableLiveData<List<PawtindResponse>>()
     private val compositeDisposable = CompositeDisposable()
 
     init {
@@ -28,6 +30,7 @@ class LoginViewModel(private val mainRepository: MainRepository) : ViewModel() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ userList ->
                     login.postValue(Resource.success(userList))
+                    fields.postValue(userList.fields)
                 }, {
                     login.postValue(Resource.error("Something Went Wrong", null))
                 })
@@ -41,6 +44,14 @@ class LoginViewModel(private val mainRepository: MainRepository) : ViewModel() {
 
     fun getLogin(): LiveData<Resource<Login>> {
         return login
+    }
+
+    fun setFields(pawtindResponse: List<PawtindResponse>) {
+        fields.value = pawtindResponse
+    }
+
+    fun getFields(): LiveData<List<PawtindResponse>> {
+        return fields
     }
 
 }

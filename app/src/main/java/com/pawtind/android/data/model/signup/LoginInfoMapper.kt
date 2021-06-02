@@ -5,19 +5,19 @@ import com.google.gson.annotations.SerializedName
 data class LoginInfoMapper(
 
     @SerializedName("emailPlaceholder")
-    var emailPlaceholder: String = "",
+    var emailPlaceholder: String = "emailPlaceholder",
     @SerializedName("emailTitle")
-    val emailTitle: String = "",
+    val emailTitle: String = "emailTitle",
     @SerializedName("forgotPasswordButtonTitle")
-    val forgotPasswordButtonTitle: String = "",
+    val forgotPasswordButtonTitle: String = "forgotPasswordButtonTitle",
     @SerializedName("loginButtonTitle")
-    val loginButtonTitle: String = "",
+    val loginButtonTitle: String = "loginButtonTitle",
     @SerializedName("passwordPlaceholder")
-    val passwordPlaceholder: String = "",
+    val passwordPlaceholder: String = "passwordPlaceholder",
     @SerializedName("passwordTitle")
-    val passwordTitle: String = "",
+    val passwordTitle: String = "passwordTitle",
     @SerializedName("title")
-    val title: String = "",
+    val title: String = "title",
 
 
     )

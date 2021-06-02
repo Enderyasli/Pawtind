@@ -16,26 +16,29 @@ import com.pawtind.android.data.model.PawtindResponse
 import com.pawtind.android.data.model.signup.LoginInfoMapper
 import com.pawtind.android.databinding.FragmentWelcomeBinding
 import com.pawtind.android.ui.base.BaseFragment
+import com.pawtind.android.ui.base.RegisterBaseFragment
 import com.pawtind.android.ui.base.ViewModelFactory
+import com.pawtind.android.ui.main.viewmodel.signup.LoginViewModel
 import com.pawtind.android.ui.main.viewmodel.signup.WelcomeViewModel
+import com.pawtind.android.utils.Constants
 import com.pawtind.android.utils.PreferenceHelper
 import com.pawtind.android.utils.Status
 import java.lang.reflect.Field
 
 
-class WelcomeFragment : BaseFragment() {
+@Suppress("NAME_SHADOWING")
+class WelcomeFragment : RegisterBaseFragment<LoginViewModel>() {
 
     override var bottomNavigationViewVisibility = View.GONE
     private var _binding: FragmentWelcomeBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var welcomeViewModel: WelcomeViewModel
+
+    override var useSharedViewModel = true
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setupViewModel()
-        setupObserver()
 
 
     }
@@ -54,6 +57,7 @@ class WelcomeFragment : BaseFragment() {
             findNavController().navigate(R.id.action_navigation_welcome_to_navigation_signup)
         }
         binding.loginBtn.setOnClickListener {
+            getLogin()
             findNavController().navigate(R.id.action_navigation_welcome_to_navigation_login)
         }
 
@@ -61,56 +65,18 @@ class WelcomeFragment : BaseFragment() {
 
     }
 
-    private fun setupViewModel() {
-        welcomeViewModel = ViewModelProviders.of(
-            this,
-            ViewModelFactory(ApiHelper(ApiServiceImpl()))
-        ).get(WelcomeViewModel::class.java)
+    override fun observeData() {
+        super.observeData()
+
     }
 
-    private fun setupObserver() {
-        welcomeViewModel.getLogin().observe(this, Observer { it ->
-            when (it.status) {
-                Status.SUCCESS -> {
-                    it.data?.let { it ->
-
-
-                        val pawtindResponse:List<PawtindResponse> = it.fields
-                        var loginInfoMapper = LoginInfoMapper()
-
-                        pawtindResponse.forEach { pawtindResponse: PawtindResponse ->
-
-                            loginInfoMapper.javaClass.declaredFields.forEach {
-
-
-                                if(pawtindResponse.key == it.name){
-                                    val field: Field = LoginInfoMapper::class.java.getDeclaredField(it.name)
-                                    field.isAccessible =true
-                                    field.set(loginInfoMapper,pawtindResponse.value)
-                                }
-
-
-                            }
-
-
-                        }
-
-                            Log.d("gelenresponse", it.toString())
-                    }
-                }
-                Status.LOADING -> {
-                }
-                Status.ERROR -> {
-                    //Handle Error
-                    Toast.makeText(context, it.message, Toast.LENGTH_LONG).show()
-                }
-            }
-        })
-    }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
+    override fun getViewModelClass() = LoginViewModel::class.java
+
 
 }
