@@ -1,29 +1,17 @@
 package com.pawtind.android.ui.main.view.login
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
-import com.pawtind.android.data.api.ApiHelper
-import com.pawtind.android.data.api.ApiServiceImpl
-import com.pawtind.android.data.model.PawtindResponse
-import com.pawtind.android.data.model.signup.LoginInfoMapper
 import com.pawtind.android.databinding.FragmentLoginBinding
-import com.pawtind.android.ui.base.BaseFragment
 import com.pawtind.android.ui.base.RegisterBaseFragment
-import com.pawtind.android.ui.base.ViewModelFactory
-import com.pawtind.android.ui.main.viewmodel.signup.LoginViewModel
-import com.pawtind.android.ui.main.viewmodel.signup.WelcomeViewModel
+import com.pawtind.android.ui.main.viewmodel.signup.RegisterBaseViewModel
 import com.pawtind.android.utils.Constants
-import com.pawtind.android.utils.Status
-import java.lang.reflect.Field
 
 
-class LoginFragment : RegisterBaseFragment<LoginViewModel>() {
+class LoginFragment : RegisterBaseFragment<RegisterBaseViewModel>() {
 
     override var bottomNavigationViewVisibility = View.GONE
     private var _binding: FragmentLoginBinding? = null
@@ -53,8 +41,6 @@ class LoginFragment : RegisterBaseFragment<LoginViewModel>() {
             binding.parentLayout.visibility = View.VISIBLE
             binding.progressBar.visibility = View.GONE
         })
-
-
     }
 //    override fun observeData() {
 //        super.observeData()
@@ -176,5 +162,5 @@ class LoginFragment : RegisterBaseFragment<LoginViewModel>() {
         _binding = null
     }
 
-    override fun getViewModelClass() = LoginViewModel::class.java
+    override fun getViewModelClass() = RegisterBaseViewModel::class.java
 }

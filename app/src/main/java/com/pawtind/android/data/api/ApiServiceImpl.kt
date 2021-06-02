@@ -7,14 +7,27 @@ import io.reactivex.Single
 
 class ApiServiceImpl : ApiService {
 
-    override fun getUsers(): Single<List<User>> {
-        return Rx2AndroidNetworking.get("https://5e510330f2c0d300147c034c.mockapi.io/users")
+
+    override fun getLoginPageData(): Single<Login> {
+        return Rx2AndroidNetworking.get("http://api.pawtind.com/api/page/login/info")
             .build()
-            .getObjectListSingle(User::class.java)
+            .getObjectSingle(Login::class.java)
     }
 
-    override fun getLogin(): Single<Login> {
-        return Rx2AndroidNetworking.get("http://api.pawtind.com/api/page/login/info")
+    override fun getRegisterPageData(): Single<Login> {
+        return Rx2AndroidNetworking.get("http://api.pawtind.com/api/page/register/info")
+            .build()
+            .getObjectSingle(Login::class.java)
+    }
+
+    override fun getRegisterDetailPageData(): Single<Login> {
+        return Rx2AndroidNetworking.get("http://api.pawtind.com/api/page/register-detail/info")
+            .build()
+            .getObjectSingle(Login::class.java)
+    }
+
+    override fun getAnimalAddPhotoPageData(): Single<Login> {
+        return Rx2AndroidNetworking.get("http://api.pawtind.com/api/page/animal-add-photo/info\n")
             .build()
             .getObjectSingle(Login::class.java)
     }

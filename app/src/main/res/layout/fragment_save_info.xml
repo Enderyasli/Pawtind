@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.view.login.singUp.SaveInfoFragment">
+    tools:context=".ui.main.view.login.singUp.RegisterDetailFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -76,7 +76,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/title_tv"
+                        android:id="@+id/date_of_birth_tv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/margin_minimum"
@@ -91,26 +91,32 @@
                         android:orientation="horizontal"
                         android:weightSum="3">
 
-
-                        <Spinner
-
-                            android:id="@+id/input_tv"
+                        <RelativeLayout
                             android:layout_width="match_parent"
-                            android:layout_height="50dp"
+                            android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/margin_minimum"
                             android:layout_marginTop="5dp"
                             android:layout_marginRight="@dimen/margin_minimum"
                             android:layout_marginBottom="5dp"
-                            android:layout_weight="1"
-                            android:background="@drawable/common_input_btn_bg"
-                            android:elevation="2dp"
-                            android:fontFamily="@font/poppins_medium"
-                            android:gravity="center_vertical"
-                            android:hint="Gün"
-                            android:paddingLeft="15dp"
-                            android:spinnerMode="dropdown"
-                            android:textColor="@color/hint_text_color" />
+                            android:layout_weight="1">
 
+                            <Spinner
+                                android:id="@+id/spinner"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:layout_margin="3dp"
+                                android:background="@drawable/common_input_btn_bg"
+                                android:elevation="2dp"
+                                android:fontFamily="@font/poppins_medium"
+                                android:gravity="center_vertical"
+                                android:hint="Gün"
+                                android:paddingLeft="15dp"
+                                android:spinnerMode="dropdown"
+                                android:textColor="@color/hint_text_color" />
+
+
+
+                        </RelativeLayout>
 
                         <TextView
                             android:id="@+id/day_tv"
@@ -150,6 +156,7 @@
                     </LinearLayout>
 
                     <include
+                        android:id="@+id/genderLy"
                         layout="@layout/common_rounded_input_tv"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -157,7 +164,7 @@
 
 
                     <Button
-                        android:id="@+id/signup_btn"
+                        android:id="@+id/add_animal_btn"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/common_button_height"
                         android:layout_marginTop="48dp"
@@ -186,6 +193,7 @@
 
         </RelativeLayout>
 
+
         <androidx.cardview.widget.CardView
             android:layout_width="75dp"
             android:layout_height="75dp"
@@ -194,6 +202,16 @@
             android:layout_marginTop="212.5dp"
             app:cardBackgroundColor="#F0F0F0"
             app:cardCornerRadius="37.5dp"
-            app:cardElevation="2dp" />
+            app:cardElevation="2dp">
+
+            <ImageView
+
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_gravity="center"
+                android:src="@drawable/image" />
+        </androidx.cardview.widget.CardView>
+
+
     </RelativeLayout>
 </ScrollView>

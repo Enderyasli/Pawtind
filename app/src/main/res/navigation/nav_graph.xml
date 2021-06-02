@@ -35,11 +35,10 @@
             android:id="@+id/action_navigation_welcome_to_navigation_onboarding"
             app:destination="@id/navigation_onboarding" />
         <action
-            app:enterAnim="@anim/slide_left"
-            app:popExitAnim="@anim/slide_right"
             android:id="@+id/action_navigation_welcome_to_navigation_signup"
             app:destination="@id/navigation_signup"
-             />
+            app:enterAnim="@anim/slide_left"
+            app:popExitAnim="@anim/slide_right" />
         <action
             android:id="@+id/action_navigation_welcome_to_navigation_login"
             app:destination="@id/navigation_login" />
@@ -58,21 +57,32 @@
 
     <fragment
         android:id="@+id/navigation_signup"
-        android:name="com.pawtind.android.ui.main.view.login.singUp.SignupFragment"
+        android:name="com.pawtind.android.ui.main.view.login.singUp.RegisterFragment"
         android:label="Onboarding"
         app:launchSingleTop="true"
         app:popUpToInclusive="true"
         tools:layout="@layout/fragment_signup">
 
         <action
-            android:id="@+id/action_navigation_signup_to_navigation_photo"
-            app:destination="@id/navigation_photo"
-            app:enterAnim="@anim/slide_in" />
+            android:id="@+id/action_navigation_signup_to_navigation_register_detail"
+            app:destination="@id/navigation_register_detail" />
     </fragment>
+    <fragment
+        android:id="@+id/navigation_register_detail"
+        android:name="com.pawtind.android.ui.main.view.login.singUp.RegisterDetailFragment"
+        android:label="RegisterDetail"
+        app:launchSingleTop="true"
+        app:popUpToInclusive="true"
+        tools:layout="@layout/fragment_save_info">
+        <action
+            android:id="@+id/action_navigation_register_detail_to_navigation_photo"
+            app:destination="@id/navigation_photo" />
+    </fragment>
+
     <fragment
         android:id="@+id/navigation_photo"
         android:name="com.pawtind.android.ui.main.view.login.singUp.AddImageFragment"
-        android:label="Onboarding"
+        android:label="AddImage"
         app:launchSingleTop="true"
         app:popUpToInclusive="true"
         tools:layout="@layout/fragment_add_image">

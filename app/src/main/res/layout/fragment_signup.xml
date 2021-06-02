@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.view.login.singUp.SignupFragment">
+    tools:context=".ui.main.view.login.singUp.RegisterFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -33,7 +33,6 @@
                 android:textSize="22dp" />
 
             <TextView
-                android:fontFamily="@font/poppins_semibold"
                 android:id="@+id/signup_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -41,6 +40,7 @@
                 android:layout_marginLeft="@dimen/default_margin"
                 android:layout_marginRight="@dimen/default_margin"
                 android:layout_marginBottom="3dp"
+                android:fontFamily="@font/poppins_semibold"
                 android:text="@string/sign_up"
                 android:textColor="@color/orangeButton"
                 android:textSize="40dp" />
@@ -67,19 +67,110 @@
             android:layout_marginRight="20dp"
             android:orientation="vertical">
 
-            <include layout="@layout/common_rounded_input_tv" />
+            <include
+                android:id="@+id/nameLy"
+                layout="@layout/common_rounded_input_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
             <include
+                android:id="@+id/surnameLy"
                 layout="@layout/common_rounded_input_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp" />
 
             <include
+                android:id="@+id/emailLy"
                 layout="@layout/common_rounded_input_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="25dp" />
+
+            <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:textSize="14sp"
+                        android:id="@+id/password_title_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_minimum"
+                        android:layout_marginTop="@dimen/default_margin"
+                        android:layout_marginRight="@dimen/margin_minimum"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:text="Şifre"
+                        android:textColor="@color/input_text_color" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/password_detail_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_minimum"
+                        android:layout_marginTop="@dimen/default_margin"
+                        android:layout_marginRight="@dimen/margin_minimum"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:textSize="10sp"
+                        android:text="Şifre 1'i büyük 8 karakterden oluşmalı"
+                        android:textColor="@color/input_text_color" />
+
+
+                </LinearLayout>
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_minimum"
+                    android:layout_marginRight="@dimen/margin_minimum"
+                    android:layout_marginBottom="5dp"
+                    app:cardBackgroundColor="@color/whitegrey"
+                    app:cardCornerRadius="@dimen/commonButtonRadius"
+                    app:cardElevation="2dp">
+
+                    <EditText
+                        android:textSize="14sp"
+                        android:id="@+id/password_placeholder_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/common_input_btn_bg"
+                        android:fontFamily="@font/poppins_medium"
+                        android:gravity="center_vertical"
+                        android:hint="Password"
+                        android:inputType="textPassword"
+                        android:paddingStart="15dp"
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/hint_text_color" />
+
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:id="@+id/forgot_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_minimum"
+                    android:layout_marginTop="@dimen/default_margin"
+                    android:layout_marginRight="@dimen/margin_minimum"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:gravity="right"
+                    android:text="@string/forgot_password"
+                    android:textColor="@color/input_text_color"
+                    android:textSize="@dimen/medium_size" />
+            </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -92,11 +183,34 @@
                     android:layout_height="wrap_content" />
 
                 <TextView
-                    android:id="@+id/privacy_policy_tv"
-                    android:layout_width="match_parent"
+                    android:id="@+id/terms_link_title_tv"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/privacy_policy"
-                    android:textSize="11dp" />
+                    android:text="Kullanım Koşulları "
+                    android:textColor="@color/orangeButton"
+                    android:textSize="11sp" />
+
+                <TextView
+                    android:id="@+id/terms_and_title_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ve "
+                    android:textColor="@color/input_text_color"
+                    android:textSize="11sp" />
+                <TextView
+                    android:id="@+id/privacy_title_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gizlilik Sözleşmesi'ni "
+                    android:textColor="@color/orangeButton"
+                    android:textSize="11sp" />
+                <TextView
+                    android:id="@+id/privacy_approve_title_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="onaylıyorum"
+                    android:textColor="@color/input_text_color"
+                    android:textSize="11sp" />
             </LinearLayout>
 
             <Button

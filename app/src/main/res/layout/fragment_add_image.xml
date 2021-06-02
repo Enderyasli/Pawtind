@@ -12,7 +12,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/signup_title"
+            android:id="@+id/animal_add_photo_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/default_margin"
@@ -69,14 +69,22 @@
                 app:cardElevation="0dp">
 
                 <ImageView
+                    android:id="@+id/image1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <ImageView
+                    android:id="@+id/image1_x"
                     android:layout_width="@dimen/medium_size"
                     android:layout_height="@dimen/medium_size"
                     android:layout_gravity="right"
                     android:layout_marginTop="@dimen/small_size"
                     android:layout_marginRight="@dimen/small_size"
-                    android:src="@drawable/x" />
+                    android:src="@drawable/x"
+                    android:visibility="gone" />
 
                 <ImageView
+                    android:id="@+id/image1_placeholder"
                     android:layout_width="32dp"
                     android:layout_height="32dp"
                     android:layout_gravity="center"
@@ -97,6 +105,7 @@
                 app:cardElevation="0dp">
 
                 <ImageView
+                    android:id="@+id/image2_x"
                     android:layout_width="@dimen/medium_size"
                     android:layout_height="@dimen/medium_size"
                     android:layout_gravity="right"
@@ -106,6 +115,12 @@
                     android:visibility="gone" />
 
                 <ImageView
+                    android:id="@+id/image2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <ImageView
+                    android:id="@+id/image2_placeholder"
                     android:layout_width="32dp"
                     android:layout_height="32dp"
                     android:layout_gravity="center"
@@ -126,6 +141,12 @@
                 app:cardElevation="0dp">
 
                 <ImageView
+                    android:id="@+id/image3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <ImageView
+                    android:id="@+id/image3_x"
                     android:layout_width="@dimen/medium_size"
                     android:layout_height="@dimen/medium_size"
                     android:layout_gravity="right"
@@ -135,6 +156,7 @@
                     android:visibility="gone" />
 
                 <ImageView
+                    android:id="@+id/image3_placeholder"
                     android:layout_width="32dp"
                     android:layout_height="32dp"
                     android:layout_gravity="center"
@@ -145,8 +167,7 @@
         </LinearLayout>
 
         <Button
-            android:enabled="false"
-            android:id="@+id/signup_btn"
+            android:id="@+id/complete_btn"
             android:layout_width="match_parent"
             android:layout_height="@dimen/common_button_height"
             android:layout_marginLeft="@dimen/default_margin"
@@ -154,6 +175,7 @@
             android:layout_marginRight="@dimen/default_margin"
             android:layout_marginBottom="45dp"
             android:background="@drawable/disabled_button_bg"
+            android:enabled="false"
             android:fontFamily="@font/poppins_semibold"
             android:text="@string/complete"
             android:textAllCaps="false"

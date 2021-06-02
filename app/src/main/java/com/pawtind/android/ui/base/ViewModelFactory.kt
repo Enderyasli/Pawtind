@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.pawtind.android.data.api.ApiHelper
 import com.pawtind.android.data.repository.MainRepository
 import com.pawtind.android.ui.main.viewmodel.MainViewModel
-import com.pawtind.android.ui.main.viewmodel.signup.LoginViewModel
+import com.pawtind.android.ui.main.viewmodel.signup.RegisterBaseViewModel
 import com.pawtind.android.ui.main.viewmodel.signup.WelcomeViewModel
 
 class ViewModelFactory(private val apiHelper: ApiHelper) : ViewModelProvider.Factory {
@@ -17,8 +17,8 @@ class ViewModelFactory(private val apiHelper: ApiHelper) : ViewModelProvider.Fac
         if (modelClass.isAssignableFrom(WelcomeViewModel::class.java)) {
             return WelcomeViewModel(MainRepository(apiHelper)) as T
         }
-        if (modelClass.isAssignableFrom(LoginViewModel::class.java)) {
-            return LoginViewModel(MainRepository(apiHelper)) as T
+        if (modelClass.isAssignableFrom(RegisterBaseViewModel::class.java)) {
+            return RegisterBaseViewModel(MainRepository(apiHelper)) as T
         }
         throw IllegalArgumentException("Unknown class name")
     }

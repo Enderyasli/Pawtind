@@ -1,24 +1,19 @@
 package com.pawtind.android.ui.base
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
-import androidx.viewbinding.ViewBinding
 import com.pawtind.android.data.api.ApiHelper
 import com.pawtind.android.data.api.ApiServiceImpl
 import com.pawtind.android.data.model.PawtindResponse
 import com.pawtind.android.ui.main.view.MainActivity
-import com.pawtind.android.ui.main.viewmodel.signup.LoginViewModel
-import com.pawtind.android.utils.Status
+import com.pawtind.android.ui.main.viewmodel.signup.RegisterBaseViewModel
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 
-abstract class RegisterBaseFragment<VModel : LoginViewModel> : Fragment() {
+abstract class RegisterBaseFragment<VModel : RegisterBaseViewModel> : Fragment() {
 
     protected open var bottomNavigationViewVisibility = View.VISIBLE
 
@@ -28,10 +23,6 @@ abstract class RegisterBaseFragment<VModel : LoginViewModel> : Fragment() {
     protected abstract fun getViewModelClass(): Class<VModel>
 
     var pawtindResponse: List<PawtindResponse>? = null
-        get() = field
-        set(value) {
-            field = value
-        }
 
     private val disposableContainer = CompositeDisposable()
 
@@ -44,7 +35,6 @@ abstract class RegisterBaseFragment<VModel : LoginViewModel> : Fragment() {
             mainActivity.setBottomNavigationVisibility(bottomNavigationViewVisibility)
 
             init()
-            observeData()
             setUpViews()
 
         }
@@ -62,7 +52,6 @@ abstract class RegisterBaseFragment<VModel : LoginViewModel> : Fragment() {
     }
 
     fun setPawtindResponseList(pawtindResponseList: List<PawtindResponse>) {
-
         pawtindResponse = pawtindResponseList
     }
 
@@ -76,29 +65,37 @@ abstract class RegisterBaseFragment<VModel : LoginViewModel> : Fragment() {
 
     open fun setUpViews() {}
 
-    open fun observeView() {}
 
-    open fun observeData() {}
 
-    open fun getLogin() {
+    open fun fetchLogin() {
+        viewModel.fetchLogin()
+    //        viewModel.getLogin().observe(this, Observer { it ->
+//            when (it.status) {
+//                Status.SUCCESS -> {
+//                    it.data?.let {
+//
+//                        pawtindResponse = it.fields
+//
+//                        Log.d("gelenresponse", it.toString())
+//                    }
+//                }
+//                Status.LOADING -> {
+//                }
+//                Status.ERROR -> {
+//                }
+//            }
+//        })
 
-        viewModel.getLogin().observe(this, Observer { it ->
-            when (it.status) {
-                Status.SUCCESS -> {
-                    it.data?.let {
+    }
 
-                        pawtindResponse = it.fields
-
-                        Log.d("gelenresponse", it.toString())
-                    }
-                }
-                Status.LOADING -> {
-                }
-                Status.ERROR -> {
-                }
-            }
-        })
-
+    open fun fetchRegister() {
+        viewModel.fetchRegister()
+    }
+    open fun fetchRegisterDetail() {
+        viewModel.fetchRegisterDetail()
+    }
+    open fun fetchAnimalAddPhoto() {
+        viewModel.fetchAnimalAddPhoto()
     }
 
     private fun init() {

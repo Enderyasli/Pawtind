@@ -21,17 +21,17 @@ class MainViewModel(private val mainRepository: MainRepository) : ViewModel() {
 
 
     private fun fetchUsers() {
-        users.postValue(Resource.loading(null))
-        compositeDisposable.add(
-            mainRepository.getUsers()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({ userList ->
-                    users.postValue(Resource.success(userList))
-                }, { throwable ->
-                    users.postValue(Resource.error("Something Went Wrong", null))
-                })
-        )
+//        users.postValue(Resource.loading(null))
+//        compositeDisposable.add(
+//            mainRepository.getUsers()
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe({ userList ->
+//                    users.postValue(Resource.success(userList))
+//                }, { throwable ->
+//                    users.postValue(Resource.error("Something Went Wrong", null))
+//                })
+//        )
     }
 
     override fun onCleared() {

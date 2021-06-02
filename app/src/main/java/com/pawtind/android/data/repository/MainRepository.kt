@@ -7,11 +7,17 @@ import io.reactivex.Single
 
 class MainRepository(private val apiHelper: ApiHelper) {
 
-    fun getUsers(): Single<List<User>> {
-        return apiHelper.getUsers()
-    }
     fun getLogin(): Single<Login> {
         return apiHelper.getLogin()
+    }
+    fun getRegister(): Single<Login> {
+        return apiHelper.getRegister()
+    }
+    fun getRegisterDetail(): Single<Login> {
+        return apiHelper.getRegisterDetail()
+    }
+    fun getAnimalAddPhoto(): Single<Login> {
+        return apiHelper.getAnimalAddPhoto()
     }
 
 }

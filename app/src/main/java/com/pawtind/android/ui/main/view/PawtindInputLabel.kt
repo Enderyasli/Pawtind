@@ -21,7 +21,7 @@ class PawtindInputLabel @JvmOverloads constructor(
             .inflate(R.layout.common_rounded_input_tv, this, true)
 
         titleTv = findViewById(R.id.titleTv)
-        inputTv = findViewById(R.id.input_tv)
+        inputTv = findViewById(R.id.placeholder_tv)
 
         val semiBold = ResourcesCompat.getFont(context, R.font.poppins_semibold)
         val medium = ResourcesCompat.getFont(context, R.font.poppins_medium)
