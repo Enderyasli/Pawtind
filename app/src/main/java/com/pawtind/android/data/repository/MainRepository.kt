@@ -19,5 +19,8 @@ class MainRepository(private val apiHelper: ApiHelper) {
     fun getAnimalAddPhoto(): Single<Login> {
         return apiHelper.getAnimalAddPhoto()
     }
+    fun getAnimalAdd(): Single<Login> {
+        return apiHelper.getAnimalAdd()
+    }
 
 }

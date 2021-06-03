@@ -1,4 +1,4 @@
-package com.pawtind.android.ui.main.view.fragments
+package com.pawtind.android.ui.main.view.fragments.animal
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

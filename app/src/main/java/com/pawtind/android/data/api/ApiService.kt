@@ -10,5 +10,6 @@ interface ApiService {
     fun getRegisterPageData(): Single<Login>
     fun getRegisterDetailPageData(): Single<Login>
     fun getAnimalAddPhotoPageData(): Single<Login>
+    fun getAnimalAddPageData(): Single<Login>
 
 }

@@ -16,6 +16,10 @@ class RegisterBaseViewModel(private val mainRepository: MainRepository) : ViewMo
     private val login = MutableLiveData<Resource<Login>>()
     private val register = MutableLiveData<Resource<Login>>()
     private val fields = MutableLiveData<List<PawtindResponse>>()
+    private val registerFields = MutableLiveData<List<PawtindResponse>>()
+    private val registerDetailFields = MutableLiveData<List<PawtindResponse>>()
+    private val addAnimalImageFields = MutableLiveData<List<PawtindResponse>>()
+    private val addAnimaLFields = MutableLiveData<List<PawtindResponse>>()
     private val compositeDisposable = CompositeDisposable()
 
 
@@ -33,6 +37,7 @@ class RegisterBaseViewModel(private val mainRepository: MainRepository) : ViewMo
                 })
         )
     }
+
     public fun fetchRegister() {
         register.postValue(Resource.loading(null))
         compositeDisposable.add(
@@ -41,7 +46,7 @@ class RegisterBaseViewModel(private val mainRepository: MainRepository) : ViewMo
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ registerData ->
                     register.postValue(Resource.success(registerData))
-                    fields.postValue(registerData.fields)
+                    registerFields.postValue(registerData.fields)
                 }, {
                     register.postValue(Resource.error("Something Went Wrong", null))
                 })
@@ -56,7 +61,7 @@ class RegisterBaseViewModel(private val mainRepository: MainRepository) : ViewMo
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ registerData ->
                     register.postValue(Resource.success(registerData))
-                    fields.postValue(registerData.fields)
+                    registerDetailFields.postValue(registerData.fields)
                 }, {
                     register.postValue(Resource.error("Something Went Wrong", null))
                 })
@@ -71,7 +76,22 @@ class RegisterBaseViewModel(private val mainRepository: MainRepository) : ViewMo
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ registerData ->
                     register.postValue(Resource.success(registerData))
-                    fields.postValue(registerData.fields)
+                    addAnimalImageFields.postValue(registerData.fields)
+                }, {
+                    register.postValue(Resource.error("Something Went Wrong", null))
+                })
+        )
+    }
+
+    public fun fetchAddAnimal() {
+        register.postValue(Resource.loading(null))
+        compositeDisposable.add(
+            mainRepository.getAnimalAdd()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe({ registerData ->
+                    register.postValue(Resource.success(registerData))
+                    addAnimaLFields.postValue(registerData.fields)
                 }, {
                     register.postValue(Resource.error("Something Went Wrong", null))
                 })
@@ -94,6 +114,21 @@ class RegisterBaseViewModel(private val mainRepository: MainRepository) : ViewMo
 
     fun getFields(): LiveData<List<PawtindResponse>> {
         return fields
+    }
+
+    fun getRegisterFields(): LiveData<List<PawtindResponse>> {
+        return registerFields
+    }
+
+    fun getRegisterDetailFields(): LiveData<List<PawtindResponse>> {
+        return registerDetailFields
+    }
+
+    fun getAddImageFields(): LiveData<List<PawtindResponse>> {
+        return addAnimalImageFields
+    }
+    fun getAddAnimalFields(): LiveData<List<PawtindResponse>> {
+        return addAnimaLFields
     }
 
 }

@@ -75,7 +75,18 @@
         app:popUpToInclusive="true"
         tools:layout="@layout/fragment_save_info">
         <action
-            android:id="@+id/action_navigation_register_detail_to_navigation_photo"
+            android:id="@+id/action_navigation_register_detail_to_navigation_add_animal"
+            app:destination="@id/navigation_add_animal" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_add_animal"
+        android:name="com.pawtind.android.ui.main.view.fragments.animal.AddAnimalFragment"
+        android:label="AddAnimal"
+        app:launchSingleTop="true"
+        app:popUpToInclusive="true"
+        tools:layout="@layout/fragment_add_animal">
+        <action
+            android:id="@+id/action_navigation_add_animal_to_navigation_photo"
             app:destination="@id/navigation_photo" />
     </fragment>
 

@@ -7,5 +7,6 @@ class ApiHelper(private val apiService: ApiService) {
     fun getRegister() = apiService.getRegisterPageData()
     fun getRegisterDetail() = apiService.getRegisterDetailPageData()
     fun getAnimalAddPhoto() = apiService.getAnimalAddPhotoPageData()
+    fun getAnimalAdd() = apiService.getAnimalAddPageData()
 
 }

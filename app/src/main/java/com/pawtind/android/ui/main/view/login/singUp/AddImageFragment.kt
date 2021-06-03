@@ -9,13 +9,11 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.pawtind.android.databinding.FragmentAddImageBinding
-import com.pawtind.android.ui.base.BaseFragment
 import com.pawtind.android.ui.base.RegisterBaseFragment
 import com.pawtind.android.ui.main.viewmodel.signup.RegisterBaseViewModel
 import com.pawtind.android.utils.Constants
 import com.theartofdev.edmodo.cropper.CropImage
 import kotlinx.android.synthetic.main.fragment_add_image.*
-import kotlinx.android.synthetic.main.item_layout.view.*
 
 
 class AddImageFragment : RegisterBaseFragment<RegisterBaseViewModel>() {
@@ -30,7 +28,7 @@ class AddImageFragment : RegisterBaseFragment<RegisterBaseViewModel>() {
 
     override fun setUpViews() {
         super.setUpViews()
-        viewModel.getFields().observe(this, Observer {
+        viewModel.getAddImageFields().observe(this, Observer {
 
             setPawtindResponseList(it)
             binding.animalAddPhotoTitle.text = getLocaizedString(Constants.registerTitle)

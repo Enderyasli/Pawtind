@@ -30,7 +30,7 @@ class RegisterDetailFragment : RegisterBaseFragment<RegisterBaseViewModel>() {
 
     override fun setUpViews() {
         super.setUpViews()
-        viewModel.getFields().observe(this, Observer {
+        viewModel.getRegisterDetailFields().observe(this, Observer {
 
             setPawtindResponseList(it)
             binding.signupTitle.text = getLocaizedString(Constants.registerTitle)

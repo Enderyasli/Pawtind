@@ -4,22 +4,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.pawtind.android.R
 import com.pawtind.android.data.model.User
 import kotlinx.android.synthetic.main.item_layout.view.*
 
-class MainAdapter(
-    private val users: ArrayList<User>
-) : RecyclerView.Adapter<MainAdapter.DataViewHolder>() {
+class CharacterAdapter(
+    private val users: ArrayList<String>
+) : RecyclerView.Adapter<CharacterAdapter.DataViewHolder>() {
 
     class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(user: User) {
-//            itemView.textViewUserName.text = user.name
-//            itemView.textViewUserEmail.text = user.email
-//            Glide.with(itemView.imageViewAvatar.context)
-//                .load(user.avatar)
-//                .into(itemView.imageViewAvatar)
+        fun bind(user: String) {
+            itemView.character_title_tv.text = user
+
         }
     }
 
@@ -36,7 +32,7 @@ class MainAdapter(
     override fun onBindViewHolder(holder: DataViewHolder, position: Int) =
         holder.bind(users[position])
 
-    fun addData(list: List<User>) {
+    fun addData(list: List<String>) {
         users.addAll(list)
     }
 
