@@ -48,8 +48,8 @@ class RegisterDetailFragment : RegisterBaseFragment<RegisterBaseViewModel>() {
         })
 
         binding.addAnimalBtn.setOnClickListener {
-            fetchAnimalAddPhoto()
-            findNavController().navigate(R.id.action_navigation_register_detail_to_navigation_photo)
+            fetchAddAnimal()
+            findNavController().navigate(R.id.action_navigation_register_detail_to_navigation_add_animal)
         }
 
     }

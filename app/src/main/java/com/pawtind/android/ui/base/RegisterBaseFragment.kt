@@ -97,6 +97,9 @@ abstract class RegisterBaseFragment<VModel : RegisterBaseViewModel> : Fragment()
     open fun fetchAnimalAddPhoto() {
         viewModel.fetchAnimalAddPhoto()
     }
+    open fun fetchAddAnimal() {
+        viewModel.fetchAddAnimal()
+    }
 
     private fun init() {
         viewModel = if (useSharedViewModel) {
