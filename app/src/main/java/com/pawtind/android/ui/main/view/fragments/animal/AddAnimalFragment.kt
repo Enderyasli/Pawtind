@@ -45,7 +45,17 @@ class AddAnimalFragment : RegisterBaseFragment<RegisterBaseViewModel>() {
         viewModel.getAddAnimalFields().observe(this, Observer {
 
             setPawtindResponseList(it)
+            binding.characterRc.layoutManager = GridLayoutManager(requireContext(), 3)
 
+            var adapter = CharacterAdapter(requireContext(),arrayListOf("Item", "Item", "Item", "Item", "Item","Item"))
+
+//            recyclerView.addItemDecoration(
+//                DividerItemDecoration(
+//                    requireContext(),
+//                    (recyclerView.layoutManager as LinearLayoutManager).orientation
+//                )
+//            )
+            binding.characterRc.adapter = adapter
 
         })
 
@@ -55,20 +65,7 @@ class AddAnimalFragment : RegisterBaseFragment<RegisterBaseViewModel>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        recyclerView.layoutManager = GridLayoutManager(context, 3)
 
-        var adapter: CharacterAdapter = CharacterAdapter(arrayListOf("x", "y", "z", "v", "g", "h"))
-
-        recyclerView.addItemDecoration(
-            DividerItemDecoration(
-                recyclerView.context,
-                (recyclerView.layoutManager as LinearLayoutManager).orientation
-            )
-        )
-        recyclerView.adapter = adapter
-
-        adapter.addData(listOf("x"))
-        adapter.notifyDataSetChanged()
     }
 
 
