@@ -38,6 +38,62 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
+            <include
+                android:id="@+id/ageLy"
+                layout="@layout/common_rounded_input_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal">
+
+                <include
+                    android:id="@+id/genderLy"
+                    layout="@layout/common_spinner_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="6dp"
+                    android:layout_weight="1" />
+
+                <include
+                    android:id="@+id/typeLy"
+                    layout="@layout/common_spinner_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:orientation="horizontal">
+
+                <include
+                    android:id="@+id/breedLy"
+                    layout="@layout/common_spinner_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="6dp"
+                    android:layout_weight="1" />
+
+                <include
+                    android:id="@+id/colorLy"
+                    layout="@layout/common_spinner_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="6dp"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+
             <TextView
                 android:id="@+id/character_title_tv"
                 android:layout_width="wrap_content"
@@ -53,7 +109,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/character_rc"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content" />
 
         </LinearLayout>
 

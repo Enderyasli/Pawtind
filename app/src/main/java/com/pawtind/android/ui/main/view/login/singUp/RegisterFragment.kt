@@ -35,47 +35,47 @@ class RegisterFragment : RegisterBaseFragment<RegisterBaseViewModel>() {
         viewModel.getRegisterFields().observe(this, Observer {
 
             setPawtindResponseList(it)
-            binding.signupTitle.text = getLocaizedString(Constants.registerTitle)
-            binding.signupDescription.text = getLocaizedString(Constants.registerSubTitle)
+            binding.signupTitle.text = getLocalizedString(Constants.registerTitle)
+            binding.signupDescription.text = getLocalizedString(Constants.registerSubTitle)
 
             binding.nameLy.titleTv.text =
-                getLocaizedString(Constants.registerNameTitle)
+                getLocalizedString(Constants.registerNameTitle)
             binding.nameLy.placeholderTv.hint =
-                getLocaizedString(Constants.registerNamePlaceholder)
+                getLocalizedString(Constants.registerNamePlaceholder)
             binding.surnameLy.titleTv.text =
-                getLocaizedString(Constants.registerSurnameTitle)
+                getLocalizedString(Constants.registerSurnameTitle)
             binding.surnameLy.placeholderTv.hint =
-                getLocaizedString(Constants.registerSurnamePlaceholder)
+                getLocalizedString(Constants.registerSurnamePlaceholder)
             binding.emailLy.titleTv.text =
-                getLocaizedString(Constants.registerEmailTitle)
+                getLocalizedString(Constants.registerEmailTitle)
             binding.emailLy.placeholderTv.hint =
-                getLocaizedString(Constants.registerEmailPlaceholder)
+                getLocalizedString(Constants.registerEmailPlaceholder)
             binding.passwordTitleTv.text =
-                getLocaizedString(Constants.registerPasswordTitle)
+                getLocalizedString(Constants.registerPasswordTitle)
             binding.passwordDetailTv.text =
-                getLocaizedString(Constants.registerPasswordDetail)
+                getLocalizedString(Constants.registerPasswordDetail)
             binding.passwordPlaceholderTv.hint =
-                getLocaizedString(Constants.registerPasswordPlaceholder)
+                getLocalizedString(Constants.registerPasswordPlaceholder)
             binding.signupBtn.text =
-                getLocaizedString(Constants.registerButtonTitle)
+                getLocalizedString(Constants.registerButtonTitle)
             binding.termsLinkTitleTv.text =
-                getLocaizedString(Constants.registerTermsLinkTitle) + " "
+                getLocalizedString(Constants.registerTermsLinkTitle) + " "
             binding.termsAndTitleTv.text =
-                getLocaizedString(Constants.registerTermsAndTitle) + " "
+                getLocalizedString(Constants.registerTermsAndTitle) + " "
             binding.privacyTitleTv.text =
-                getLocaizedString(Constants.registerPrivacyLinkTitle) + " "
+                getLocalizedString(Constants.registerPrivacyLinkTitle) + " "
             binding.privacyApproveTitleTv.text =
-                getLocaizedString(Constants.registerPrivacyApproveTitle)
+                getLocalizedString(Constants.registerPrivacyApproveTitle)
 
             binding.termsLinkTitleTv.setOnClickListener {
                 val uri: Uri =
-                    Uri.parse(getLocaizedString(Constants.registerTermsLink))
+                    Uri.parse(getLocalizedString(Constants.registerTermsLink))
                 val intent = Intent(Intent.ACTION_VIEW, uri)
                 startActivity(intent)
             }
             binding.privacyTitleTv.setOnClickListener {
                 val uri: Uri =
-                    Uri.parse(getLocaizedString(Constants.registerPrivacyLink))
+                    Uri.parse(getLocalizedString(Constants.registerPrivacyLink))
                 val intent = Intent(Intent.ACTION_VIEW, uri)
                 startActivity(intent)
             }

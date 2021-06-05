@@ -34,7 +34,14 @@ class Constants {
         const val registerAnimalInsertButtonTitle: String = "animalInsertButtonTitle"
         const val registerSkipButtonTitle: String = "skipButtonTitle"
         const val registerCompleteButtonTitle: String = "completeButtonTitle"
-
+        const val animalAddAgeTitle: String = "ageTitle"
+        const val animalAddAgePlaceholder: String = "agePlaceholder"
+        const val animalAddGenderTitle: String = "genderTitle"
+        const val animalAddTypeTitle: String = "typeTitle"
+        const val animalAddBreedTitle: String = "breedTitle"
+        const val animalAddColorTitle: String = "colorTitle"
+        const val animalAddCharacterTitle: String = "characterTitle"
+        const val animalAddNextButtonTitle: String = "nextButtonTitle"
 
 
     }

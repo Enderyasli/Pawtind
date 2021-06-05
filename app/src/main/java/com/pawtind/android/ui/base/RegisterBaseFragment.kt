@@ -1,6 +1,10 @@
 package com.pawtind.android.ui.base
 
+import android.graphics.Color
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -40,7 +44,7 @@ abstract class RegisterBaseFragment<VModel : RegisterBaseViewModel> : Fragment()
         }
     }
 
-    fun getLocaizedString(key: String): String {
+    fun getLocalizedString(key: String): String {
 
 
         pawtindResponse?.forEach {
@@ -49,6 +53,29 @@ abstract class RegisterBaseFragment<VModel : RegisterBaseViewModel> : Fragment()
         }
 
         return ""
+    }
+
+    fun getLocalizedSpan(key: String): SpannableString? {
+
+        pawtindResponse?.forEach {
+            if (it.key == key)
+                return getSpannableString(it.value)
+        }
+        return null
+
+    }
+
+
+    fun getSpannableString(key: String): SpannableString {
+
+        val spannable = SpannableString(key + " *")
+        spannable.setSpan(
+            ForegroundColorSpan(Color.RED),
+            key.length,// start
+            key.length + 2, // end
+            Spannable.SPAN_EXCLUSIVE_INCLUSIVE
+        )
+        return spannable
     }
 
     fun setPawtindResponseList(pawtindResponseList: List<PawtindResponse>) {
@@ -66,10 +93,9 @@ abstract class RegisterBaseFragment<VModel : RegisterBaseViewModel> : Fragment()
     open fun setUpViews() {}
 
 
-
     open fun fetchLogin() {
         viewModel.fetchLogin()
-    //        viewModel.getLogin().observe(this, Observer { it ->
+        //        viewModel.getLogin().observe(this, Observer { it ->
 //            when (it.status) {
 //                Status.SUCCESS -> {
 //                    it.data?.let {
@@ -91,12 +117,15 @@ abstract class RegisterBaseFragment<VModel : RegisterBaseViewModel> : Fragment()
     open fun fetchRegister() {
         viewModel.fetchRegister()
     }
+
     open fun fetchRegisterDetail() {
         viewModel.fetchRegisterDetail()
     }
+
     open fun fetchAnimalAddPhoto() {
         viewModel.fetchAnimalAddPhoto()
     }
+
     open fun fetchAddAnimal() {
         viewModel.fetchAddAnimal()
     }

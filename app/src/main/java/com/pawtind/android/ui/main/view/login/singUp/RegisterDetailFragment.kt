@@ -8,7 +8,6 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.pawtind.android.R
 import com.pawtind.android.databinding.FragmentSaveInfoBinding
-import com.pawtind.android.ui.base.BaseFragment
 import com.pawtind.android.ui.base.RegisterBaseFragment
 import com.pawtind.android.ui.main.viewmodel.signup.RegisterBaseViewModel
 import com.pawtind.android.utils.Constants
@@ -33,17 +32,17 @@ class RegisterDetailFragment : RegisterBaseFragment<RegisterBaseViewModel>() {
         viewModel.getRegisterDetailFields().observe(this, Observer {
 
             setPawtindResponseList(it)
-            binding.signupTitle.text = getLocaizedString(Constants.registerTitle)
+            binding.signupTitle.text = getLocalizedString(Constants.registerTitle)
             binding.signupDescription.text =
-                getLocaizedString(Constants.registerSubTitle)
+                getLocalizedString(Constants.registerSubTitle)
             binding.dateOfBirthTv.text =
-                getLocaizedString(Constants.registerDateOfBirthTitle)
+                getLocalizedString(Constants.registerDateOfBirthTitle)
             binding.genderLy.titleTv.text =
-                getLocaizedString(Constants.registerEmailPlaceholder)
+                getLocalizedString(Constants.registerEmailPlaceholder)
             binding.addAnimalBtn.text =
-                getLocaizedString(Constants.registerAnimalInsertButtonTitle)
+                getLocalizedString(Constants.registerAnimalInsertButtonTitle)
             binding.goWithoutAnimalTv.text =
-                getLocaizedString(Constants.registerSkipButtonTitle)
+                getLocalizedString(Constants.registerSkipButtonTitle)
 
         })
 

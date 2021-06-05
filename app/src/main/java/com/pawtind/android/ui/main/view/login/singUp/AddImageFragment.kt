@@ -31,8 +31,8 @@ class AddImageFragment : RegisterBaseFragment<RegisterBaseViewModel>() {
         viewModel.getAddImageFields().observe(this, Observer {
 
             setPawtindResponseList(it)
-            binding.animalAddPhotoTitle.text = getLocaizedString(Constants.registerTitle)
-            binding.completeBtn.text = getLocaizedString(Constants.registerCompleteButtonTitle)
+            binding.animalAddPhotoTitle.text = getLocalizedString(Constants.registerTitle)
+            binding.completeBtn.text = getLocalizedString(Constants.registerCompleteButtonTitle)
 
         })
     }

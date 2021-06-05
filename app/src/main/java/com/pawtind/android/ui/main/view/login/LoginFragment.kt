@@ -27,17 +27,17 @@ class LoginFragment : RegisterBaseFragment<RegisterBaseViewModel>() {
         viewModel.getFields().observe(this, Observer {
 
             setPawtindResponseList(it)
-            binding.signupTitle.text = getLocaizedString(Constants.registerTitle)
+            binding.signupTitle.text = getLocalizedString(Constants.registerTitle)
             binding.emailLayout.titleTv.text =
-                getLocaizedString(Constants.registerEmailTitle)
+                getLocalizedString(Constants.registerEmailTitle)
             binding.emailLayout.placeholderTv.hint =
-                getLocaizedString(Constants.registerEmailPlaceholder)
+                getLocalizedString(Constants.registerEmailPlaceholder)
             binding.passwordTitleTv.text =
-                getLocaizedString(Constants.registerPasswordTitle)
+                getLocalizedString(Constants.registerPasswordTitle)
             binding.passwordPlaceholderTv.hint =
-                getLocaizedString(Constants.registerPasswordPlaceholder)
+                getLocalizedString(Constants.registerPasswordPlaceholder)
             binding.forgotPassword.text =
-                getLocaizedString(Constants.registerForgotPasswordButtonTitle)
+                getLocalizedString(Constants.registerForgotPasswordButtonTitle)
             binding.parentLayout.visibility = View.VISIBLE
             binding.progressBar.visibility = View.GONE
         })
