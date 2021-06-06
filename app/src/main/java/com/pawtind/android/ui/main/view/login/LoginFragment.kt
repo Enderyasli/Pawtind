@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
+import com.pawtind.android.R
 import com.pawtind.android.databinding.FragmentLoginBinding
 import com.pawtind.android.ui.base.RegisterBaseFragment
 import com.pawtind.android.ui.main.viewmodel.signup.RegisterBaseViewModel
@@ -93,6 +95,10 @@ class LoginFragment : RegisterBaseFragment<RegisterBaseViewModel>() {
     ): View {
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
         val view = binding.root
+
+        binding.loginBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_navigation_login_to_mobile_navigation)
+        }
 
         return view
 

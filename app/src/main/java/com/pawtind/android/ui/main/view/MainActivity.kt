@@ -39,7 +39,6 @@ class MainActivity : AppCompatActivity() {
             R.id.navigation_home,
             R.id.navigation_favourites,
             R.id.navigation_profile,
-            R.id.navigation_search
         ).build()
 
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.navHostFragment) as NavHostFragment
