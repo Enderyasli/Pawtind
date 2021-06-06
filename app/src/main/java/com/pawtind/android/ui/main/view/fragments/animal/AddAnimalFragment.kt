@@ -8,7 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import com.pawtind.android.R
 import com.pawtind.android.databinding.FragmentAddAnimalBinding
 import com.pawtind.android.ui.base.RegisterBaseFragment
 import com.pawtind.android.ui.main.adapter.CharacterAdapter
@@ -70,7 +72,6 @@ class AddAnimalFragment : RegisterBaseFragment<RegisterBaseViewModel>(),
             )
 
             binding.characterRc.adapter = adapter
-
         })
 
 
@@ -144,7 +145,9 @@ class AddAnimalFragment : RegisterBaseFragment<RegisterBaseViewModel>(),
         _binding = FragmentAddAnimalBinding.inflate(inflater, container, false)
         val view = binding.root
 
-
+        binding.skipBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_navigation_add_animal_to_navigation_photo)
+        }
 
         return view
 

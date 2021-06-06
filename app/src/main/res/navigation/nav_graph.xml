@@ -97,9 +97,23 @@
         app:launchSingleTop="true"
         app:popUpToInclusive="true"
         tools:layout="@layout/fragment_add_image">
-
+        <action
+            android:id="@+id/action_navigation_photo_to_navigation_animal_list"
+            app:destination="@id/navigation_animal_list" />
     </fragment>
 
+
+    <fragment
+        android:id="@+id/navigation_animal_list"
+        android:name="com.pawtind.android.ui.main.view.fragments.animal.AnimalListFragment"
+        android:label="AnimalList"
+        app:launchSingleTop="true"
+        app:popUpToInclusive="true"
+        tools:layout="@layout/fragment_animal_list">
+        <action
+            android:id="@+id/action_navigation_animal_list_to_mobile_navigation"
+            app:destination="@id/mobile_navigation" />
+    </fragment>
     <navigation
         android:id="@+id/mobile_navigation"
         app:startDestination="@+id/navigation_home">

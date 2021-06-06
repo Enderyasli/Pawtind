@@ -151,7 +151,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/signup_btn"
+        android:id="@+id/complete_btn"
         android:layout_width="match_parent"
         android:layout_height="@dimen/common_button_height"
         android:layout_gravity="bottom"
@@ -159,7 +159,6 @@
         android:layout_marginRight="@dimen/default_margin"
         android:layout_marginBottom="120dp"
         android:background="@drawable/orange_button_bg"
-        android:enabled="false"
         android:fontFamily="@font/poppins_semibold"
         android:text="@string/complete"
         android:textAllCaps="false"

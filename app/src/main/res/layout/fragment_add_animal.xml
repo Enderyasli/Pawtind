@@ -115,10 +115,12 @@
 
 
         <Button
-            android:id="@+id/signup_btn"
+            android:id="@+id/skip_btn"
             android:layout_width="match_parent"
             android:layout_height="@dimen/common_button_height"
+            android:layout_marginLeft="@dimen/default_margin"
             android:layout_marginTop="48dp"
+            android:layout_marginRight="@dimen/default_margin"
             android:layout_marginBottom="50dp"
             android:background="@drawable/orange_button_bg"
             android:fontFamily="@font/poppins_semibold"

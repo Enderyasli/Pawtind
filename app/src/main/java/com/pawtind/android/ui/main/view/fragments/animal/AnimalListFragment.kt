@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.pawtind.android.R
 import com.pawtind.android.databinding.FragmentAnimalListBinding
 import com.pawtind.android.databinding.FragmentLoginBinding
@@ -31,6 +32,9 @@ class AnimalListFragment : BaseFragment() {
         _binding = FragmentAnimalListBinding.inflate(inflater, container, false)
         val view = binding.root
 
+        binding.completeBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_navigation_animal_list_to_mobile_navigation)
+        }
 
 
         return view

@@ -6,14 +6,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
+import com.pawtind.android.R
 import com.pawtind.android.databinding.FragmentAddImageBinding
 import com.pawtind.android.ui.base.RegisterBaseFragment
 import com.pawtind.android.ui.main.viewmodel.signup.RegisterBaseViewModel
 import com.pawtind.android.utils.Constants
 import com.theartofdev.edmodo.cropper.CropImage
 import kotlinx.android.synthetic.main.fragment_add_image.*
+import kotlinx.android.synthetic.main.item_layout.view.*
 
 
 class AddImageFragment : RegisterBaseFragment<RegisterBaseViewModel>() {
@@ -51,10 +55,12 @@ class AddImageFragment : RegisterBaseFragment<RegisterBaseViewModel>() {
 
         binding.imageView.setOnClickListener {
 
-            // for fragment (DO NOT use `getActivity()`)
             CropImage.activity()
                 .setAspectRatio(1, 1)
                 .start(requireContext(), this)
+        }
+        binding.completeBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_navigation_photo_to_navigation_animal_list)
         }
 
 
@@ -71,26 +77,35 @@ class AddImageFragment : RegisterBaseFragment<RegisterBaseViewModel>() {
                     .load(resultUri)
                     .into(binding.imageView)
                 when {
-                    image1.drawable==null -> {
+                    image1.drawable == null -> {
                         Glide.with(requireContext())
                             .load(resultUri)
                             .into(binding.image1)
-                        binding.image1Placeholder.visibility =View.GONE
-                        binding.image1X.visibility =View.VISIBLE
+                        binding.image1Placeholder.visibility = View.GONE
+                        binding.image1X.visibility = View.VISIBLE
+
+                        binding.completeBtn.isEnabled = true
+                        binding.completeBtn.setBackgroundResource(R.drawable.orange_button_bg)
+                        binding.completeBtn.setTextColor(
+                            ContextCompat.getColor(
+                                requireContext(),
+                                R.color.white
+                            )
+                        )
                     }
-                    image2.drawable==null -> {
+                    image2.drawable == null -> {
                         Glide.with(requireContext())
                             .load(resultUri)
                             .into(binding.image2)
-                        binding.image2Placeholder.visibility =View.GONE
-                        binding.image2X.visibility =View.VISIBLE
+                        binding.image2Placeholder.visibility = View.GONE
+                        binding.image2X.visibility = View.VISIBLE
                     }
-                    image3.drawable==null -> {
+                    image3.drawable == null -> {
                         Glide.with(requireContext())
                             .load(resultUri)
                             .into(binding.image3)
-                        binding.image3Placeholder.visibility =View.GONE
-                        binding.image3X.visibility =View.VISIBLE
+                        binding.image3Placeholder.visibility = View.GONE
+                        binding.image3X.visibility = View.VISIBLE
                     }
                 }
 
