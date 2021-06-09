@@ -9,16 +9,20 @@ import androidx.recyclerview.widget.RecyclerView
 import com.pawtind.android.R
 import kotlinx.android.synthetic.main.item_layout.view.*
 
+
 class FilterAdapter(
     val context: Context,
-    private val users: ArrayList<String>
+    private val users: ArrayList<String>,
+    val filterItemClickListener: FilterItemClickListener
 ) : RecyclerView.Adapter<FilterAdapter.DataViewHolder>() {
+
+    private var selectedPos = 0
+    private val listener: FilterItemClickListener? = null
+
 
     class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(context: Context, character: String) {
             itemView.character_title_tv.text = character
-
-
         }
     }
 
@@ -37,16 +41,27 @@ class FilterAdapter(
         holder.bind(context, users[position])
 
 
-        holder.itemView.character_title_tv.setBackgroundResource(R.drawable.character_item_bg)
-        holder.itemView.character_title_tv.setTextColor(
-            ContextCompat.getColor(
-                context,
-                R.color.grey
+
+        if (position != selectedPos) {
+            holder.itemView.character_title_tv.setBackgroundResource(R.drawable.character_item_bg)
+            holder.itemView.character_title_tv.setTextColor(
+                ContextCompat.getColor(
+                    context,
+                    R.color.grey
+                )
             )
-        )
+            holder.itemView.isSelected = false
+        }
+
+
 
 
         holder.itemView.setOnClickListener {
+
+            filterItemClickListener.onFilterItemClick(users[position]);
+
+            selectedPos = position
+            notifyDataSetChanged()
             if (!it.isSelected) {
                 holder.itemView.character_title_tv.setBackgroundResource(R.drawable.character_item_selected_bg)
                 holder.itemView.character_title_tv.setTextColor(

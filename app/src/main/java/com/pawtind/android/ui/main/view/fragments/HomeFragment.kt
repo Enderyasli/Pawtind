@@ -22,9 +22,7 @@ import com.pawtind.android.databinding.FragmentHomeBinding
 import com.pawtind.android.databinding.FragmentLoginBinding
 import com.pawtind.android.ui.base.BaseFragment
 import com.pawtind.android.ui.base.ViewModelFactory
-import com.pawtind.android.ui.main.adapter.CharacterAdapter
-import com.pawtind.android.ui.main.adapter.FilterAdapter
-import com.pawtind.android.ui.main.adapter.MainAdapter
+import com.pawtind.android.ui.main.adapter.*
 import com.pawtind.android.ui.main.viewmodel.MainViewModel
 import com.pawtind.android.utils.Status
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -35,7 +33,7 @@ import kotlinx.android.synthetic.main.fragment_home.*
  * Use the [HomeFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class HomeFragment : BaseFragment() {
+class HomeFragment : BaseFragment(), FilterItemClickListener {
 
 
     private var _binding: FragmentHomeBinding? = null
@@ -78,7 +76,6 @@ class HomeFragment : BaseFragment() {
     private fun setupUI() {
 
 
-
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         adapter = MainAdapter(arrayListOf())
         recyclerView.addItemDecoration(
@@ -89,12 +86,23 @@ class HomeFragment : BaseFragment() {
         )
         recyclerView.adapter = adapter
 
+
+
         binding.animalRv.layoutManager = GridLayoutManager(requireContext(), 3)
         var adapter = FilterAdapter(
             requireContext(),
-            arrayListOf("All", "Cat", "Dog")
+            arrayListOf("All", "Cat", "Dog"),
+            this@HomeFragment
         )
         binding.animalRv.adapter = adapter
+
+
+        binding.animalListRv.layoutManager = GridLayoutManager(requireContext(), 2)
+        var animalAdapter = AnimalAdapter(
+            requireContext(),
+            arrayListOf("Lucky", "Kont", "Hera","Fluffy")
+        )
+        binding.animalListRv.adapter = animalAdapter
 
 
     }
@@ -129,5 +137,19 @@ class HomeFragment : BaseFragment() {
             ViewModelFactory(ApiHelper(ApiServiceImpl()))
         ).get(MainViewModel::class.java)
     }
+
+    override fun onFilterItemClick(item: String?) {
+        if (!item.equals("All")) {
+            binding.noAnimalImg.visibility = View.VISIBLE
+            binding.noAnimalTv.visibility = View.VISIBLE
+            binding.animalListRv.visibility = View.GONE
+        } else {
+            binding.noAnimalImg.visibility = View.GONE
+            binding.noAnimalTv.visibility = View.GONE
+            binding.animalListRv.visibility = View.VISIBLE
+
+        }
+    }
+
 
 }

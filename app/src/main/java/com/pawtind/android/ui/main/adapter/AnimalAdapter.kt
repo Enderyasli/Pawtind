@@ -4,10 +4,9 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.pawtind.android.R
-import kotlinx.android.synthetic.main.item_layout.view.*
+import kotlinx.android.synthetic.main.animal_item.view.*
 
 class AnimalAdapter(
     val context: Context,
@@ -15,22 +14,8 @@ class AnimalAdapter(
 ) : RecyclerView.Adapter<AnimalAdapter.DataViewHolder>() {
 
     class DataViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(context: Context, character: String) {
-            itemView.character_title_tv.text = character
-
-            itemView.setOnClickListener {
-                if(!it.isSelected){
-                    itemView.character_title_tv.setBackgroundResource(R.drawable.character_item_selected_bg)
-                    itemView.character_title_tv.setTextColor(ContextCompat.getColor(context,R.color.white))
-                    it.isSelected=true
-                }else{
-                    itemView.character_title_tv.setBackgroundResource(R.drawable.character_item_bg)
-                    itemView.character_title_tv.setTextColor(ContextCompat.getColor(context,R.color.grey))
-                    it.isSelected=false
-                }
-
-
-            }
+        fun bind(context: Context, petName: String) {
+            itemView.pet_name_tv.text = petName
 
         }
     }
@@ -38,7 +23,7 @@ class AnimalAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         DataViewHolder(
             LayoutInflater.from(parent.context).inflate(
-                R.layout.item_layout, parent,
+                R.layout.animal_item, parent,
                 false
             )
         )
