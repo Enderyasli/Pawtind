@@ -18,9 +18,10 @@ class LoginFragment : RegisterBaseFragment<RegisterBaseViewModel>() {
     override var bottomNavigationViewVisibility = View.GONE
     private var _binding: FragmentLoginBinding? = null
 
+    private val binding get() = _binding!!
+
     override var useSharedViewModel = true
 
-    private val binding get() = _binding!!
 
 //    private lateinit var loginViewModel: LoginViewModel
 
