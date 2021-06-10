@@ -1,25 +1,19 @@
 package com.pawtind.android.ui.main.view.fragments
 
-import android.content.Context
 import android.os.Bundle
-import android.view.ContextThemeWrapper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.pawtind.android.R
 import com.pawtind.android.data.api.ApiHelper
 import com.pawtind.android.data.api.ApiServiceImpl
 import com.pawtind.android.data.model.User
 import com.pawtind.android.databinding.FragmentHomeBinding
-import com.pawtind.android.databinding.FragmentLoginBinding
 import com.pawtind.android.ui.base.BaseFragment
 import com.pawtind.android.ui.base.ViewModelFactory
 import com.pawtind.android.ui.main.adapter.*
@@ -28,11 +22,6 @@ import com.pawtind.android.utils.Status
 import kotlinx.android.synthetic.main.fragment_home.*
 
 
-/**
- * A simple [Fragment] subclass.
- * Use the [HomeFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class HomeFragment : BaseFragment(), FilterItemClickListener {
 
 

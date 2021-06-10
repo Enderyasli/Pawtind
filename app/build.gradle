@@ -67,6 +67,8 @@ dependencies {
     api 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
     implementation 'com.makeramen:roundedimageview:2.3.0'
     implementation "com.yuyakaido.android:card-stack-view:2.3.4"
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
 
 //    implementation 'com.github.arcadefire:nice-spinner:1.4.4'
 //    implementation 'com.github.SimformSolutionsPvtLtd:SSImagePicker:1.6'
