@@ -7,13 +7,14 @@
         android:icon="@drawable/ic_baseline_home_24"
         android:title="Evim" />
     <item
-        android:id="@+id/navigation_search"
+        android:id="@+id/navigation_dashboard"
         android:icon="@drawable/ic_baseline_home_24"
         android:title="" />
     <item
-        android:id="@+id/navigation_favourites"
+        android:id="@+id/navigation_search"
         android:icon="@drawable/ic_baseline_home_24"
         android:title="Mesajlar" />
+
 
 
 </menu>

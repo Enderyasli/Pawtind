@@ -128,10 +128,10 @@
             tools:layout="@layout/fragment_home" />
 
         <fragment
-            android:id="@+id/navigation_favourites"
-            android:name="com.pawtind.android.ui.main.view.fragments.FavoriteFragment"
+            android:id="@+id/navigation_dashboard"
+            android:name="com.pawtind.android.ui.main.view.fragments.DashboardFragment"
             android:label="Favori"
-            tools:layout="@layout/fragment_favorite" />
+            tools:layout="@layout/fragment_dashboard" />
 
         <fragment
             android:id="@+id/navigation_search"

@@ -2,11 +2,8 @@ package com.pawtind.android.ui.main.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.NavigationUI
 import androidx.navigation.ui.setupWithNavController
 import androidx.room.Room
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -37,7 +34,7 @@ class MainActivity : AppCompatActivity() {
 
         val appBarConfiguration = AppBarConfiguration.Builder(
             R.id.navigation_home,
-            R.id.navigation_favourites,
+            R.id.navigation_dashboard,
             R.id.navigation_profile,
         ).build()
 
