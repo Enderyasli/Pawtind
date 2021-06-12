@@ -1,8 +1,12 @@
 package com.pawtind.android.ui.main.view
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.plusAssign
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import androidx.room.Room
@@ -10,6 +14,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.pawtind.android.R
 import com.pawtind.android.data.local.AppDatabase
 import com.pawtind.android.data.local.User
+import com.pawtind.android.ui.base.KeepStateNavigator
 import com.pawtind.android.ui.main.adapter.MainAdapter
 import com.pawtind.android.ui.main.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.activity_main.*
@@ -19,8 +24,9 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var mainViewModel: MainViewModel
     private lateinit var adapter: MainAdapter
-    lateinit var navView:BottomNavigationView
+    lateinit var navView: BottomNavigationView
 
+    @SuppressLint("RestrictedApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -28,7 +34,7 @@ class MainActivity : AppCompatActivity() {
 //        setupViewModel()
 //        setupObserver()
 
-         navView = findViewById<BottomNavigationView>(R.id.bottomNav_view)
+        navView = findViewById<BottomNavigationView>(R.id.bottomNav_view)
 
         //Pass the ID's of Different destinations
 
@@ -38,10 +44,19 @@ class MainActivity : AppCompatActivity() {
             R.id.navigation_profile,
         ).build()
 
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.navHostFragment) as NavHostFragment
-        val navController = navHostFragment.navController
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.navHostFragment) as NavHostFragment
+        val navController = findNavController(R.id.navHostFragment) //navHostFragment.navController
+//        findViewById<BottomNavigationView>(R.id.bottomNav_view)
+//            .setupWithNavController(navController)
+
+        val navigator =
+            KeepStateNavigator(this, navHostFragment.childFragmentManager, R.id.navHostFragment)
+        navController.navigatorProvider += navigator
+        navController.setGraph(R.navigation.nav_graph)
         findViewById<BottomNavigationView>(R.id.bottomNav_view)
             .setupWithNavController(navController)
+
 
 
         try {
@@ -58,6 +73,7 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
     fun setBottomNavigationVisibility(visibility: Int) {
         // get the reference of the bottomNavigationView and set the visibility.
         navView.visibility = visibility
