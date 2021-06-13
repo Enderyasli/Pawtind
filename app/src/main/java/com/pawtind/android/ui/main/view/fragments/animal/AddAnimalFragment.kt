@@ -44,7 +44,7 @@ class AddAnimalFragment : RegisterBaseFragment<RegisterBaseViewModel>(),
     override fun setUpViews() {
         super.setUpViews()
 
-        viewModel.getAddAnimalFields().observe(this, Observer {
+        viewModel.getAddAnimalFields().observe(this, {
 
 
             setPawtindResponseList(it)
@@ -72,6 +72,19 @@ class AddAnimalFragment : RegisterBaseFragment<RegisterBaseViewModel>(),
             )
 
             binding.characterRc.adapter = adapter
+        })
+
+        viewModel.getAddAnimalLookUps().observe(this, {
+
+//            setLookUps(it)
+//            binding.characterRc.layoutManager = GridLayoutManager(requireContext(), 3)
+//
+//            var adapter = CharacterAdapter(
+//                requireContext(),
+//                arrayListOf("Item", "Item", "Item", "Item", "Item", "Item")
+//            )
+//
+//            binding.characterRc.adapter = adapter
         })
 
 

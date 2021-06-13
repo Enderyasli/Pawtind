@@ -1,12 +1,13 @@
 package com.pawtind.android.ui.main.view.login.singUp
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.pawtind.android.R
 import com.pawtind.android.data.model.signup.Register
@@ -27,13 +28,13 @@ class RegisterFragment : RegisterBaseFragment<RegisterBaseViewModel>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
+    @SuppressLint("SetTextI18n")
     override fun setUpViews() {
         super.setUpViews()
 
-        viewModel.getRegisterFields().observe(this, Observer {
+        viewModel.getRegisterFields().observe(this, {
 
             setPawtindResponseList(it)
             binding.signupTitle.text = getLocalizedString(Constants.registerTitle)
@@ -94,16 +95,27 @@ class RegisterFragment : RegisterBaseFragment<RegisterBaseViewModel>() {
         val view = binding.root
 
         binding.signupBtn.setOnClickListener {
-            postRegister(
-                Register(
-                    "ender.yasli@mobisem.com",
-                    "Ender",
-                    "Yaşlı",
-                    "testparola"
+
+            var valid = true
+            if (TextUtils.isEmpty(binding.nameLy.placeholderTv.text.trim())) {
+                binding.nameLy.placeholderTv.error = "Name cannot be empty"
+                valid = false
+            }
+
+            if (valid) {
+                postRegister(
+                    Register(
+                        binding.emailLy.placeholderTv.text.toString().trim(),
+                        "Ender",
+                        "Yaşlı",
+                        "testparola"
+                    )
                 )
-            )
-            fetchRegisterDetail()
-            findNavController().navigate(R.id.action_navigation_signup_to_navigation_register_detail)
+                fetchRegisterDetail()
+                findNavController().navigate(R.id.action_navigation_signup_to_navigation_register_detail)
+
+            }
+
         }
 
         return view

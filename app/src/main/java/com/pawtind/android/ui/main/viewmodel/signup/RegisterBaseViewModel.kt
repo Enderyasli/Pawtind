@@ -3,6 +3,8 @@ package com.pawtind.android.ui.main.viewmodel.signup
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.pawtind.android.data.model.AccessToken
+import com.pawtind.android.data.model.LookUpsResponse
 import com.pawtind.android.data.model.PawtindResponse
 import com.pawtind.android.data.model.signup.Login
 import com.pawtind.android.data.model.signup.Register
@@ -16,12 +18,14 @@ class RegisterBaseViewModel(private val mainRepository: MainRepository) : ViewMo
 
     private val login = MutableLiveData<Resource<Login>>()
     private val register = MutableLiveData<Resource<Login>>()
-    private val postRegister = MutableLiveData<Resource<Register>>()
+    private val postRegister = MutableLiveData<Resource<AccessToken>>()
     private val fields = MutableLiveData<List<PawtindResponse>>()
     private val registerFields = MutableLiveData<List<PawtindResponse>>()
     private val registerDetailFields = MutableLiveData<List<PawtindResponse>>()
+    private val registerDetailLookUps = MutableLiveData<List<LookUpsResponse>>()
+    private val addAnimalLookUps = MutableLiveData<List<LookUpsResponse>>()
     private val addAnimalImageFields = MutableLiveData<List<PawtindResponse>>()
-    private val addAnimaLFields = MutableLiveData<List<PawtindResponse>>()
+    private val addAnimalFields = MutableLiveData<List<PawtindResponse>>()
     private val compositeDisposable = CompositeDisposable()
 
 
@@ -64,6 +68,7 @@ class RegisterBaseViewModel(private val mainRepository: MainRepository) : ViewMo
                 .subscribe({ registerData ->
                     register.postValue(Resource.success(registerData))
                     registerDetailFields.postValue(registerData.fields)
+                    registerDetailLookUps.postValue(registerData.lookups)
                 }, {
                     register.postValue(Resource.error("Something Went Wrong", null))
                 })
@@ -93,7 +98,8 @@ class RegisterBaseViewModel(private val mainRepository: MainRepository) : ViewMo
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({ registerData ->
                     register.postValue(Resource.success(registerData))
-                    addAnimaLFields.postValue(registerData.fields)
+                    addAnimalFields.postValue(registerData.fields)
+                    addAnimalLookUps.postValue(registerData.lookups)
                 }, {
                     register.postValue(Resource.error("Something Went Wrong", null))
                 })
@@ -143,12 +149,20 @@ class RegisterBaseViewModel(private val mainRepository: MainRepository) : ViewMo
         return registerDetailFields
     }
 
+    fun getRegisterDetailLookUps(): LiveData<List<LookUpsResponse>> {
+        return registerDetailLookUps
+    }
+
     fun getAddImageFields(): LiveData<List<PawtindResponse>> {
         return addAnimalImageFields
     }
 
     fun getAddAnimalFields(): LiveData<List<PawtindResponse>> {
-        return addAnimaLFields
+        return addAnimalFields
     }
+    fun getAddAnimalLookUps(): LiveData<List<LookUpsResponse>> {
+        return addAnimalLookUps
+    }
+
 
 }

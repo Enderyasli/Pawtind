@@ -1,6 +1,7 @@
 package com.pawtind.android.data.repository
 
 import com.pawtind.android.data.api.ApiHelper
+import com.pawtind.android.data.model.AccessToken
 import com.pawtind.android.data.model.User
 import com.pawtind.android.data.model.signup.Login
 import com.pawtind.android.data.model.signup.Register
@@ -28,7 +29,7 @@ class MainRepository(private val apiHelper: ApiHelper) {
         return apiHelper.getAnimalAdd()
     }
 
-    fun postRegister(register: Register): Single<Register> {
+    fun postRegister(register: Register): Single<AccessToken> {
         return apiHelper.postRegister(register)
     }
 

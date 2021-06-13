@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.pawtind.android.data.api.ApiHelper
 import com.pawtind.android.data.api.ApiServiceImpl
+import com.pawtind.android.data.model.LookUpsResponse
 import com.pawtind.android.data.model.PawtindResponse
 import com.pawtind.android.data.model.signup.Register
 import com.pawtind.android.ui.main.view.MainActivity
@@ -27,7 +28,8 @@ abstract class RegisterBaseFragment<VModel : RegisterBaseViewModel> : Fragment()
     protected lateinit var viewModel: VModel
     protected abstract fun getViewModelClass(): Class<VModel>
 
-    var pawtindResponse: List<PawtindResponse>? = null
+    private var pawtindResponse: List<PawtindResponse>? = null
+    private var lookUpsResponse: List<LookUpsResponse>? = null
 
     private val disposableContainer = CompositeDisposable()
 
@@ -47,13 +49,28 @@ abstract class RegisterBaseFragment<VModel : RegisterBaseViewModel> : Fragment()
 
     fun getLocalizedString(key: String): String {
 
-
         pawtindResponse?.forEach {
             if (it.key == key)
                 return it.value
         }
-
         return ""
+    }
+
+    fun getLookUps(key: String): List<String> {
+
+        lookUpsResponse?.forEach { it ->
+            if (it.key == key) {
+
+                val arrayList = arrayListOf<String>()
+                it.value.forEach {
+                    arrayList.add(it.value)
+                }
+
+                return arrayList
+
+            }
+        }
+        return emptyList()
     }
 
     fun getLocalizedSpan(key: String): SpannableString? {
@@ -81,6 +98,10 @@ abstract class RegisterBaseFragment<VModel : RegisterBaseViewModel> : Fragment()
 
     fun setPawtindResponseList(pawtindResponseList: List<PawtindResponse>) {
         pawtindResponse = pawtindResponseList
+    }
+
+    fun setLookUps(lookUpsResponseList: List<LookUpsResponse>) {
+        lookUpsResponse = lookUpsResponseList
     }
 
     override fun onResume() {
@@ -130,6 +151,7 @@ abstract class RegisterBaseFragment<VModel : RegisterBaseViewModel> : Fragment()
     open fun fetchAddAnimal() {
         viewModel.fetchAddAnimal()
     }
+
     open fun postRegister(register: Register) {
         viewModel.postRegister(register)
     }

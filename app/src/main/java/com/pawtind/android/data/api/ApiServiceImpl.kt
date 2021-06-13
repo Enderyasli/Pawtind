@@ -1,5 +1,6 @@
 package com.pawtind.android.data.api
 
+import com.pawtind.android.data.model.AccessToken
 import com.pawtind.android.data.model.signup.Login
 import com.pawtind.android.data.model.signup.Register
 import com.rx2androidnetworking.Rx2AndroidNetworking
@@ -38,12 +39,12 @@ class ApiServiceImpl : ApiService {
             .getObjectSingle(Login::class.java)
     }
 
-    override fun postRegister(register: Register): Single<Register> {
+    override fun postRegister(register: Register): Single<AccessToken> {
         return Rx2AndroidNetworking.post("http://api.pawtind.com/api/page/register")
             .addApplicationJsonBody(register)
             .addHeaders("Content-Type", "application/json")
             .build()
-            .getObjectSingle(Register::class.java)
+            .getObjectSingle(AccessToken::class.java)
     }
 
 }

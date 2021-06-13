@@ -38,7 +38,7 @@ class RegisterDetailFragment : RegisterBaseFragment<RegisterBaseViewModel>(),
 
     override fun setUpViews() {
         super.setUpViews()
-        viewModel.getRegisterDetailFields().observe(this, Observer {
+        viewModel.getRegisterDetailFields().observe(this, {
 
             setPawtindResponseList(it)
             binding.signupTitle.text = getLocalizedString(Constants.registerTitle)
@@ -75,6 +75,27 @@ class RegisterDetailFragment : RegisterBaseFragment<RegisterBaseViewModel>(),
             }
 
         })
+
+        viewModel.getRegisterDetailLookUps().observe(this, {
+
+            setLookUps(it)
+
+            val gender = getLookUps("gender")
+            val genderAdapter =
+                ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, gender)
+            genderAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+            with(binding.genderLy.spinner)
+            {
+                adapter = genderAdapter
+                setSelection(0, false)
+                onItemSelectedListener = this@RegisterDetailFragment
+                gravity = Gravity.CENTER
+
+            }
+
+        })
+
 
         binding.addAnimalBtn.setOnClickListener {
             fetchAddAnimal()
