@@ -51,7 +51,7 @@ class RegisterDetailFragment : RegisterBaseFragment<RegisterBaseViewModel>(),
             binding.aboutPlaceholderTv.hint =
                 getLocalizedString(Constants.registerAboutMePlaceholder)
             binding.birthPlaceholderTv.hint =
-            getLocalizedString(Constants.registerDateOfBirthPlaceholder)
+                getLocalizedString(Constants.registerDateOfBirthPlaceholder)
             binding.genderLy.titleTv.text =
                 getLocalizedString(Constants.registerGenderTitle)
             binding.addAnimalBtn.text =
@@ -102,6 +102,7 @@ class RegisterDetailFragment : RegisterBaseFragment<RegisterBaseViewModel>(),
         return view
 
     }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
             val result = CropImage.getActivityResult(data)
@@ -111,7 +112,7 @@ class RegisterDetailFragment : RegisterBaseFragment<RegisterBaseViewModel>(),
                     .load(resultUri)
                     .into(binding.imageProfile)
 
-                binding.imagePlaceholder.visibility =View.GONE
+                binding.imagePlaceholder.visibility = View.GONE
 
             } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
                 val error = result.error
@@ -126,11 +127,9 @@ class RegisterDetailFragment : RegisterBaseFragment<RegisterBaseViewModel>(),
 
     override fun getViewModelClass() = RegisterBaseViewModel::class.java
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        TODO("Not yet implemented")
     }
 
     override fun onNothingSelected(parent: AdapterView<*>?) {
-        TODO("Not yet implemented")
     }
 
 }

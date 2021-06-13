@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.pawtind.android.R
+import com.pawtind.android.data.model.signup.Register
 import com.pawtind.android.databinding.FragmentSignupBinding
 import com.pawtind.android.ui.base.RegisterBaseFragment
 import com.pawtind.android.ui.main.viewmodel.signup.RegisterBaseViewModel
@@ -93,6 +94,14 @@ class RegisterFragment : RegisterBaseFragment<RegisterBaseViewModel>() {
         val view = binding.root
 
         binding.signupBtn.setOnClickListener {
+            postRegister(
+                Register(
+                    "ender.yasli@mobisem.com",
+                    "Ender",
+                    "Yaşlı",
+                    "testparola"
+                )
+            )
             fetchRegisterDetail()
             findNavController().navigate(R.id.action_navigation_signup_to_navigation_register_detail)
         }

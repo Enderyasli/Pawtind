@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.pawtind.android.data.api.ApiHelper
 import com.pawtind.android.data.api.ApiServiceImpl
 import com.pawtind.android.data.model.PawtindResponse
+import com.pawtind.android.data.model.signup.Register
 import com.pawtind.android.ui.main.view.MainActivity
 import com.pawtind.android.ui.main.viewmodel.signup.RegisterBaseViewModel
 import io.reactivex.disposables.CompositeDisposable
@@ -128,6 +129,9 @@ abstract class RegisterBaseFragment<VModel : RegisterBaseViewModel> : Fragment()
 
     open fun fetchAddAnimal() {
         viewModel.fetchAddAnimal()
+    }
+    open fun postRegister(register: Register) {
+        viewModel.postRegister(register)
     }
 
     private fun init() {

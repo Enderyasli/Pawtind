@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.pawtind.android.data.model.PawtindResponse
 import com.pawtind.android.data.model.signup.Login
+import com.pawtind.android.data.model.signup.Register
 import com.pawtind.android.data.repository.MainRepository
 import com.pawtind.android.utils.Resource
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -15,6 +16,7 @@ class RegisterBaseViewModel(private val mainRepository: MainRepository) : ViewMo
 
     private val login = MutableLiveData<Resource<Login>>()
     private val register = MutableLiveData<Resource<Login>>()
+    private val postRegister = MutableLiveData<Resource<Register>>()
     private val fields = MutableLiveData<List<PawtindResponse>>()
     private val registerFields = MutableLiveData<List<PawtindResponse>>()
     private val registerDetailFields = MutableLiveData<List<PawtindResponse>>()
@@ -98,6 +100,23 @@ class RegisterBaseViewModel(private val mainRepository: MainRepository) : ViewMo
         )
     }
 
+    public fun postRegister(register: Register) {
+        postRegister.postValue(Resource.loading(null))
+        compositeDisposable.add(
+            mainRepository.postRegister(register)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                    { registerData ->
+                        postRegister.postValue(Resource.success(registerData))
+                    },
+                    {
+                        postRegister.postValue(Resource.error("Something Went Wrong", null))
+                    }
+                )
+        )
+    }
+
 
     override fun onCleared() {
         super.onCleared()
@@ -127,6 +146,7 @@ class RegisterBaseViewModel(private val mainRepository: MainRepository) : ViewMo
     fun getAddImageFields(): LiveData<List<PawtindResponse>> {
         return addAnimalImageFields
     }
+
     fun getAddAnimalFields(): LiveData<List<PawtindResponse>> {
         return addAnimaLFields
     }
