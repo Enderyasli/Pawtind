@@ -48,9 +48,9 @@ class RegisterFragment : RegisterBaseFragment<RegisterBaseViewModel>() {
                 getLocalizedString(Constants.registerSurnameTitle)
             binding.surnameLy.placeholderTv.hint =
                 getLocalizedString(Constants.registerSurnamePlaceholder)
-            binding.emailLy.titleTv.text =
+            binding.emailTitleTv.text =
                 getLocalizedString(Constants.registerEmailTitle)
-            binding.emailLy.placeholderTv.hint =
+            binding.emailPlaceholderTv.hint =
                 getLocalizedString(Constants.registerEmailPlaceholder)
             binding.passwordTitleTv.text =
                 getLocalizedString(Constants.registerPasswordTitle)
@@ -97,15 +97,15 @@ class RegisterFragment : RegisterBaseFragment<RegisterBaseViewModel>() {
         binding.signupBtn.setOnClickListener {
 
             var valid = true
-            if (TextUtils.isEmpty(binding.nameLy.placeholderTv.text.trim())) {
-                binding.nameLy.placeholderTv.error = "Name cannot be empty"
-                valid = false
-            }
+//            if (TextUtils.isEmpty(binding.nameLy.placeholderTv.text.trim())) {
+//                binding.nameLy.placeholderTv.error = "Name cannot be empty"
+//                valid = false
+//            }
 
             if (valid) {
                 postRegister(
                     Register(
-                        binding.emailLy.placeholderTv.text.toString().trim(),
+                        binding.emailPlaceholderTv.text.toString().trim(),
                         "Ender",
                         "Yaşlı",
                         "testparola"

@@ -11,7 +11,6 @@
         android:name="com.pawtind.android.ui.main.view.onboarding.OnBoardingFragment"
         android:label="Onboarding"
         app:launchSingleTop="true"
-        app:popUpToInclusive="true"
         tools:layout="@layout/fragment_on_boarding">
         <action
             android:id="@+id/action_navigation_start_to_mobile_navigation"
@@ -26,7 +25,6 @@
         android:name="com.pawtind.android.ui.main.view.login.WelcomeFragment"
         android:label="Onboarding"
         app:launchSingleTop="true"
-        app:popUpToInclusive="true"
         tools:layout="@layout/fragment_welcome">
         <action
             android:id="@+id/action_navigation_start_to_mobile_navigation"
@@ -49,7 +47,6 @@
         android:name="com.pawtind.android.ui.main.view.login.LoginFragment"
         android:label="Onboarding"
         app:launchSingleTop="true"
-        app:popUpToInclusive="true"
         tools:layout="@layout/fragment_login">
 
 
@@ -63,10 +60,10 @@
         android:name="com.pawtind.android.ui.main.view.login.singUp.RegisterFragment"
         android:label="Onboarding"
         app:launchSingleTop="true"
-        app:popUpToInclusive="true"
         tools:layout="@layout/fragment_signup">
 
         <action
+            app:popUpTo="@id/navigation_register_detail"
             android:id="@+id/action_navigation_signup_to_navigation_register_detail"
             app:destination="@id/navigation_register_detail" />
     </fragment>
@@ -75,7 +72,6 @@
         android:name="com.pawtind.android.ui.main.view.login.singUp.RegisterDetailFragment"
         android:label="RegisterDetail"
         app:launchSingleTop="true"
-        app:popUpToInclusive="true"
         tools:layout="@layout/fragment_save_info">
         <action
             android:id="@+id/action_navigation_register_detail_to_navigation_add_animal"
@@ -86,7 +82,6 @@
         android:name="com.pawtind.android.ui.main.view.fragments.animal.AddAnimalFragment"
         android:label="AddAnimal"
         app:launchSingleTop="true"
-        app:popUpToInclusive="true"
         tools:layout="@layout/fragment_add_animal">
         <action
             android:id="@+id/action_navigation_add_animal_to_navigation_photo"
@@ -98,7 +93,6 @@
         android:name="com.pawtind.android.ui.main.view.login.singUp.AddImageFragment"
         android:label="AddImage"
         app:launchSingleTop="true"
-        app:popUpToInclusive="true"
         tools:layout="@layout/fragment_add_image">
         <action
             android:id="@+id/action_navigation_photo_to_navigation_animal_list"
@@ -111,7 +105,6 @@
         android:name="com.pawtind.android.ui.main.view.fragments.animal.AnimalListFragment"
         android:label="AnimalList"
         app:launchSingleTop="true"
-        app:popUpToInclusive="true"
         tools:layout="@layout/fragment_animal_list">
         <action
             android:id="@+id/action_navigation_animal_list_to_mobile_navigation"
@@ -139,11 +132,6 @@
             android:label="Search"
             tools:layout="@layout/fragment_message" />
 
-        <fragment
-            android:id="@+id/navigation_profile"
-            android:name="com.pawtind.android.ui.main.view.fragments.ProfileFragment"
-            android:label="Profile"
-            tools:layout="@layout/fragment_profile" />
 
 
     </navigation>
